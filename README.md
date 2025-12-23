@@ -134,7 +134,7 @@
 ### Screenshots and appView links:
 
 ## jQuery Development
-[View](https://glowing-scone-599a90.netlify.app/)
+[View](https://gregarious-dragon-a74817.netlify.app/)
 <br>
 <br>
 <br>
