@@ -80,6 +80,7 @@ tfoot td {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   margin: auto;
   margin-top: 70px;
+  border-radius: 10%;
 }
 
 #panel span {
@@ -91,10 +92,11 @@ tfoot td {
   margin: auto;
   width: 100px;
   height: 55px;
-  background: red;
+  color:wheat;
   position: relative;
   position: center;
   background: rgb(51, 168, 177);
+  border-color: darkblue;
   border-radius: 30%;
   border-style: double;
   display: flex;

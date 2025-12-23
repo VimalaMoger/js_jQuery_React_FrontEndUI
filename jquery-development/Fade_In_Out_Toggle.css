@@ -77,6 +77,7 @@
   gap: 10px;
 }
 
+/* Pagination at the footer for web pages */
 .pagination {   
   display: flex;      
   justify-content: center;              
@@ -94,7 +95,7 @@
   font-weight:bold;
 }
 
- /* Vertical stack */
+ /* Vertical stack for buttons */
 .vertical button {
   margin-top: 5px;
   display: inline; 
@@ -106,7 +107,40 @@
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
+/* Rolling square */
 .stop, .roll {
   background-color: #4CAF50;
   color: white;
+}
+
+/* Pagination Table CSS */
+.paging-nav {
+  text-align: right;
+  padding-top: 2px;
+}
+
+.paging-nav a {
+  margin: auto 1px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1px 7px;
+  background: #91b9e6;
+  color: white;
+  border-radius: 3px;
+}
+
+.paging-nav .selected-page {
+  background: #187ed5;
+  font-weight: bold;
+}
+
+.paging-nav,
+#tableData {
+  width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 100px;
 }

@@ -306,4 +306,4 @@ $(document).ready(function(){
         imgWindow.document.write(`<img src="${imgSrc}" alt="Art Image" style="width:100%;">`); 
     });
 
-    });
+});

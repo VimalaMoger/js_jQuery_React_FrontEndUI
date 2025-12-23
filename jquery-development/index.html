@@ -22,7 +22,7 @@
     </head>
     <body>
 
-      <h1>My First jQuery Web Page</h1>
+      <h1 id="heading1">My First jQuery Web Page</h1>
       <h2 id="heading2" style="color: rgb(214, 40, 214);">This text moves with mouse movement</h2>
       <div id="info">
         <p id="text">Name: <input type="text" id ="name" value="John Smith"></p>
@@ -45,7 +45,7 @@
       </div>
     
       <br><br>
-      <div>
+      <div id= "viewPanelMove">
         <div style="display:flex;">
           <div id="topbar1">Click to view Panel</div>
           <div id="topbar2">Click to close Panel</div>
@@ -90,13 +90,24 @@
         <div>Time to cook</div>
         <div>15Min</div>
       </div>
+
+
+      <nav role="navigation" class="table-of-contents">
+        <h2>On this page:</h2>
+        <ul>
+          <li><a href="#heading1">Scroll to top</a></li>
+          <li><a href="#roll">Rolling square animation</a></li>
+          <li><a href="#viewPanelMove">Panel</a></li>
+        </ul>
+      </nav>
     
 
      <div class="pagination">
-        <a href="page3.html"><</a>
+        <a href=""><</a>
         <a href="#page1" class="active">1</a>
         <a href="page2.html">2</a>
-        <a href="page3.html">3</a>     
+        <a href="page3.html">3</a> 
+        <a href="page4.html">4</a>    
         <a href="page2.html">></a>
       </div>
     </body>
