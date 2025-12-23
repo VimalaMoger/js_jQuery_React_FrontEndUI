@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+        integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
+        crossorigin="anonymous"></script>
+        
+        <script src = "jquery_functions.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="fade_In_Out_Toggle.css">
+        <style>
+          body {
+            background-image: url('../images/backgroundImg.jfif');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+          }
+        </style>
+    </head>
+    <body>
+
+      <h1>My First jQuery Web Page</h1>
+      <h2 id="heading2" style="color: rgb(214, 40, 214);">This text moves with mouse movement</h2>
+      <div id="info">
+        <p id="text">Name: <input type="text" id ="name" value="John Smith"></p>
+        <button id="getVal">Get Name</button>
+        <button id="resetVal">Reset Value</button>
+        <button id="resetText">Reset Text</button>
+        <button id="resetHtml">Reset Html</button>
+      </div>  
+      <br><br>
+      <div style="text-align: center;">
+        <button id="hidden">Hide</button>
+        <button id="visible">Show</button>
+        <p class="line2">This text will hide or show</p> 
+      </div>
+
+      <br><br>
+      <div style="text-align: center;">
+        <p class="line3">This button will toggle</p>  
+        <button id="btn">Toggle</button>
+      </div>
+    
+      <br><br>
+      <div>
+        <div style="display:flex;">
+          <div id="topbar1">Click to view Panel</div>
+          <div id="topbar2">Click to close Panel</div>
+          <div id="topbar3">Slide up or down Panel</div>
+          <div id="topbar4">Click to toggle Panel</div>
+      </div>
+      <div id="panel"><span>This is a Panel with sample content</span></div>
+      </div>
+      <br><br>
+      <!-- Rolling Square button inactive until start -->
+      <h2 id="roll">Rolling square animation</h2>
+      <button class="stop" style="margin-left: 10px;" disabled>Stop the square rolling!</button>
+      <div style="display:block;">
+        <div id="square1"><div id="clk1">View Smaller</div></div>
+        <div id="square2"><div id="clk2">View bigger</div></div>
+        <div id="square3"><div id="clk3">Width changes</div></div>
+        <div id="square4"><div id="clk4">Long Width</div></div>
+      </div>
+      <br>
+      <button id="b1">Fade Effect_FadeIn</button>
+      <button id="b2">Fade Effect_FadeOut</button>
+      <button id ="b3">Fade Effect_FadeToggle</button>
+      <button id ="b4">Fade Effect_FadeTo</button>
+      <div id="fade">
+        <div id="one" class="box1"><br>
+          <div id="two" class="box2"><br>
+            <div id="three" class="box3"><br>
+              <div id="four" class="box4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+      <div id="drag">Click to Drag</div>
+      <br>
+      <div id="accordion">Pizza Tips
+        <div>Pizza Main Ingredient</div>
+        <div>Flour</div>
+        <div>Temperature for baking</div>
+        <div>475 degree-F</div>
+        <div>Time to cook</div>
+        <div>15Min</div>
+      </div>
+    
+
+     <div class="pagination">
+        <a href="page3.html"><</a>
+        <a href="#page1" class="active">1</a>
+        <a href="page2.html">2</a>
+        <a href="page3.html">3</a>     
+        <a href="page2.html">></a>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+        integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
+        crossorigin="anonymous"></script>
+        
+        <script src = "jquery_functions.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="fade_In_Out_Toggle.css">
+        <style>
+          body {
+            background-image: url('../images/backgroundImg.jfif');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+          }
+        </style>
+    </head>
+    <body>  
+        <div style="display:flex; justify-content:space-around;">
+          <div style="display:inline-block;">
+            <div>
+              <button id="button1">Show Text</button>
+              <button id="button2">Show Html</button>
+            </div>
+            <h5 id="milk" >Milk Product list</h5>
+            <div id="list">
+              <ul id="milklist">
+                <li>Milk</li>
+                <li>
+                  Cheese
+                  <ul>
+                    <li>Blue cheese</li>
+                    <li>Feta</li>
+                  </ul>
+                </li>
+              </ul>
+              <button id="addItem2">Add item from First</button>
+              <button id="addItem1">Add item to Last</button>
+            </div>
+          </div>
+          <br><br>
+          <div style="display:flex;"> 
+            <table id="rules" style="display:inline-block;border-color:blue;">
+                  <caption>
+                    Front-end web developer course 2025
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Person</th>
+                      <th scope="col">Most interest in</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tby">
+                    <tr id="sarah">
+                      <td>Sarah</td>
+                      <td>Web accessibility</td>
+                    </tr>
+                    <tr id="david">
+                      <td>David</td>
+                      <td>JavaScript frameworks</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th scope="row" colspan="2">Average age</th>
+                      <td>33</td>
+                    </tr>
+                  </tfoot>
+            </table> 
+          </div> 
+          <div class="vertical">
+            <button class="useCSS">Use CSSStyle</button>
+            <button class="removeCSS">Remove CSSStyle</button>    
+            <button id="person1">Remove Sarah</button>
+            <button id="person2">Remove David</button>
+            <button class="toggleCSS">ToggleCSS</button>
+          </div>         
+        </div>
+
+        <br><br>
+        <p style="background: green";>Mouse moving position</p>
+        <div id="coordinates">Mouse X: 0, Mouse Y: 0</div>
+
+        <div style="margin-top: 15px;">
+          <div style="margin-bottom: 15px;">
+            <a href="javascript:alert('Hi, I was clicked');">Click Me</a>
+          </div>
+          <br>
+          <p style="color:green"><b>Art Image to download free:</b></p>
+          <a href="images/img4.jpg" id="ref" download>
+            <img id = "thumbnail" src="../images/img4.jpg" alt="Art" width="120", height="90">
+          </a>
+          <br><br>
+          <button id="viewImage">View the image</button>
+          <br><br>
+          <div>
+            <button id="image">Show Image URL</button>
+            <button id="before">Insert Text Before Image</button> 
+            <button id="after">Insert Text after Image</button>
+          </div>
+        </div>
+        <br>
+        <div id="audioclip">
+          <audio id="myAudio" controls>
+            <!-- <source src="../audio/audio.mp3"> -->
+            <source src="audio/audio.ogg"></source>
+            <source src="../images/audio1.mp3">
+            type="audio/mp3">
+          </audio>
+        
+          <button id="remove">Remove Audio</button>
+        </div>
+     
+
+      <div class="pagination">
+        <a href="index.html"><</a>
+        <a href="index.html">1</a>
+        <a href="page2.html" class="active">2</a>
+        <a href="page3.html">3</a>     
+        <a href="page3.html">></a>
+      </div>
+    </body>
+    </html>    

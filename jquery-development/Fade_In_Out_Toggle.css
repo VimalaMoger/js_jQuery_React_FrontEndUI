@@ -6,14 +6,16 @@
     display: none;
     background-color: grey;
   }
-  .box1 > .box2{
+
+.box1 > .box2{
     width:120px;
     height:120px;
     margin-inline: 20px;
     display: none;
     background-color: brown;
   }
-  .box2 > .box3{
+  
+.box2 > .box3{
     width:80px;
     height:80px;
     margin-inline: 20px;
@@ -21,7 +23,7 @@
     background-color: yellow;
   }
  
-  .box3 >.box4{
+.box3 >.box4{
     width:40px;
     height:40px;
     margin-inline: 20px;
@@ -30,35 +32,81 @@
   }
 
   /* fade out */
-  .box1{
+.box1{
     width:160px;
     height:160px;
     /*display: none;    div's are not visible on page load */
     background-color: grey;
   }
-  .box1 > .box2{
+.box1 > .box2{
     width:120px;
     height:120px;
     margin-inline: 20px;
    
     background-color: brown;
   }
-  .box2 > .box3{
-    width:80px;
-    height:80px;
-    margin-inline: 20px;
-    background-color: yellow;
-  }
+.box2 > .box3{
+  width:80px;
+  height:80px;
+  margin-inline: 20px;
+  background-color: yellow;
+}
  
-  .box3 >.box4{
-    width:40px;
-    height:40px;
-    margin-inline: 20px;
-    background-color: red;
-  }
-  #b1,#b2,#b3,#b4{
-    border-color: blue;
-  }
+.box3 >.box4{
+  width:40px;
+  height:40px;
+  margin-inline: 20px;
+  background-color: red;
+}
 
- 
+#b1,#b2,#b3,#b4{
+  border-color: blue;
+}
 
+#fade{
+  display:flex;
+  justify-content: center;
+  margin: auto;
+  gap: 10px;
+}
+
+#info{
+  display:flex;
+  justify-content: center;
+  margin: auto;
+  gap: 10px;
+}
+
+.pagination {   
+  display: flex;      
+  justify-content: center;              
+}
+
+.pagination a {
+  color: blue;               
+  text-decoration: none; 
+  padding: 8px 15px;         
+  display: inline-block;           
+}
+
+.pagination a.active {
+  background-color: green;
+  font-weight:bold;
+}
+
+ /* Vertical stack */
+.vertical button {
+  margin-top: 5px;
+  display: inline; 
+  margin-bottom: 8px;
+  background-color: #008CBA;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.stop, .roll {
+  background-color: #4CAF50;
+  color: white;
+}

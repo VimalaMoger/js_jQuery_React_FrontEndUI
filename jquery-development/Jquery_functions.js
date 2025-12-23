@@ -133,7 +133,7 @@ $(document).ready(function(){
 
     //jQuery Set content-text-html-value
     $("#resetText").click(function(){
-        $("#text").text("Your Name:" );
+        $("#text").html("Your Name: <input type=\"text\" id=\"name\" value=\"\">");
     });
     $("#resetHtml").click(function(){
         $("#text").html("<b>Your Name: <input type=\"text\"</b>");
@@ -168,19 +168,58 @@ $(document).ready(function(){
         $("#audioclip").remove();// or empty() to clear content
     });
 
-    //remove a person(row) from table
-    $("#person1").click(function(){
-        $("#sarah").remove();
+    // display date you remember using jQuery
+    $("#Test_Date").on("change", function(){
+        var selectedDate = $(this).val();
+        $(".output").text("You selected the date: " + selectedDate);
     });
+
+    // display date range within 2024
+    $(function() {
+        $("#dateRangeForm").on("change", function(){
+            var startDate  = $("#startDate").val();
+            var endDate = $("#endDate").val();
+            let startDateObj = new Date(startDate);
+            let endDateObj = new Date(endDate);
+
+            // validate inputs    //validate year
+            if(startDateObj.getFullYear() == 2024 && endDateObj.getFullYear() == 2024){
+                $(".resultDate").text("Your selected year is 2024");
+                return;
+            } else {
+                $(".resultDate").text("Please select dates within a range for 2024.");
+                return;
+            }
+        });    
+    });    
+
+    // bootstrap date picker to select date between 2025 and 2030    
+    $(function() {
+        $('#datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            todayHighlight: true,   
+            changeMonth: true,      //Adds a month dropdown to quickly jump between months.
+            changeYear: true,       //Adds a year dropdown to quickly jump between years.    
+            yearRange: "2025:2030", // Adjust as needed
+            minDate: 0, // restrict past dates
+            maxDate: 1504, // restrict future dates
+            autoclose: true
+        });
+   
+        $("#datepicker").on("change", function(){
+            var selectedDate = $(this).val();
+            $('.bookDate').text("You selected the date: " + selectedDate);
+        });
+       
+    });
+    
+    //remove sarah/david buttons
     $("#person2").click(function(){
         $("#david").remove();
     });
-    //remove sarah/david buttons
-    $("#person2").click(function(){
-        $("#person2").remove();
-    });
+
     $("#person1").click(function(){
-        $("#person1").remove();
+        $("#sarah").remove();
     });
 
     //use CSSStyle
@@ -198,29 +237,36 @@ $(document).ready(function(){
 
     //Animate square using left, opacity, height properties
      $("#square1").click(function(){
+        $(".stop").prop("disabled", false);
+        $("#clk1").hide();
         $("#square1").animate({left: '800px', opacity:0.55, height:"toggle", width:'60px'}, 1000);
     }) 
     //Animate to bigger size
     $("#square2").click(function(){
+        $(".stop").prop("disabled", false);
+        $("#clk2").hide();
         $("#square2").animate({left: '800px', opacity:0.25,height:"+=200px", width:"+=200px"}, 1000);
     }) 
 
     //Queue functionality
     $("#square3").click(function(){
+        $(".stop").prop("disabled", false);
         $("#square3").animate({left: '400px', opacity:0.25}, 1000);
         $("#square3").animate({left: '600px', opacity:0.25}, 1000);
         $("#square3").animate({left: '800px', opacity:0.25}, 1000);
-    }); 
+    });
 
     //Stop the animation
     $("#square4").click(function(){
+        $(".stop").prop("disabled", false); // Disable the button 
         $("#square4").animate({left: '1500px', opacity:0.25}, 5000);
     });
 
+    // Stop button to stop the rolling square animation
     $(".stop").click(function(){
-        $("#square4").stop();
+        $("#square1, #square2, #square3, #square4").stop();
             alert("The square stopped rolling!")
-    });   
+    });
 
     //console output showing x and y co-ordinates values
     document.addEventListener('mousemove', function(event) {
@@ -245,6 +291,19 @@ $(document).ready(function(){
          const y = event.clientY;
          follower.style.left = `${x}px`;
          follower.style.top = `${y}px`;
-     });     
-      
-});
+     });  
+
+    // Get the audio element
+    const audioElement = document.getElementById("myAudio");
+
+    // Set the volume to 20%
+    audioElement.volume = 0.1;
+
+    //view image
+    $("#viewImage").click(function(){
+        const imgSrc = $("#thumbnail").attr("src");
+        const imgWindow = window.open("", "Image", "width=600,height=400");
+        imgWindow.document.write(`<img src="${imgSrc}" alt="Art Image" style="width:100%;">`); 
+    });
+
+    });
