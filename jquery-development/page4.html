@@ -150,6 +150,24 @@
                     "stateSave": true // remembers pagination & length after reload
             });       
         </script>
+        <br><br>
+        
+        <div style="display: flex;gap:100px;">
+            <div>
+                <a href="https://teal-bienenstitch-6e2de9.netlify.app/" target="gameFrame1">Click here to play - A Basic Calculator</a>
+                <br><br>
+                <!-- Iframe to display the game inside the same page -->
+                <iframe name="gameFrame1" class="left" src="" title="Game Area"></iframe>
+            </div>
+            <div>
+                <a href="https://iridescent-quokka-786002.netlify.app/" target="gameFrame2">Click here to play - Connect-4 Clone</a>
+                
+                <br><br>
+                <!-- Iframe to display the game inside the same page -->
+                <iframe name="gameFrame2" class ="right" src="" title="Game Area"></iframe>     
+            </div>
+        </div>
+        <br><br>
 
         <div class="pagination">
             <a href="page3.html"><</a>
@@ -159,6 +177,37 @@
             <a href="page4.html" class="active">4</a>
             <a href="">></a>
         </div>
+        <div class="confetti-wrapper"></div>
+
+      <script>     
+      // Generate confetti pieces dynamically  
+        $(document).ready(function () {
+            $('.confetti-wrapper').each(function (index, wrapper) {
+                
+                for (let i = 0; i < 50; i++) {
+                    // Create a new div element with text and a class
+                    let newDiv = $("<div></div>")
+                        .addClass("confetti-piece")
+                        //.text("This is a dynamically created div!")
+                        .css({
+                            "left": `${Math.random() * 100}%`,
+                            "--fall-duration": `${Math.random() * 3 + 3}s`,
+                            "--confetti-color": getRandomColor()
+                        });
+
+                    // Append the new div to the current wrapper
+                    $(wrapper).append(newDiv);
+
+                } 
+            });
+
+            // Function to get a random color
+            function getRandomColor() {
+                const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+        });
+      </script>
     </body>
 </html>
 

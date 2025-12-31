@@ -306,4 +306,58 @@ $(document).ready(function(){
         imgWindow.document.write(`<img src="${imgSrc}" alt="Art Image" style="width:100%;">`); 
     });
 
+    $(document).ready(function() {
+        // Apply hover effect
+        $("#hoverBox").hover(
+        function() {
+        // Mouse enters
+            $(this).css({
+                "background-color": "orange",
+                    "color": "white"
+            }).text("Mouse is here!");
+            },
+            function() {
+            // Mouse leaves
+                $(this).css({
+                    "background-color": "lightblue",
+                    "color": "black"
+                }).text("Hover over me");
+                }
+            );
+    });
+
+    //handle login submit
+
+    $(document).ready(function() {
+        // Show popup
+        $("#loginBtn").click(function() {
+            $("#overlay, #popup").fadeIn(200);
+        });
+
+        // Close popup
+        $("#closePopup, #overlay").click(function() {
+            $("#overlay, #popup").fadeOut(200);
+            $("#errorMsg").text(""); // Clear error
+        });
+
+        // Handle login submit
+        $("#submitLogin").click(function() {
+            let username = $("#username").val().trim();
+            let password = $("#password").val().trim();
+
+            if (username === "" || password === "") {
+                $("#errorMsg").text("Please enter both username and password.");
+                    return;
+            }
+
+            // Simulate authentication (replace with AJAX call in real app)
+            if (username === "admin" && password === "1234") {
+                alert("Login successful!");
+                $("#overlay, #popup").fadeOut(200);
+            } else {
+                $("#errorMsg").text("Invalid username or password.");
+            }
+        });
+    });
+
 });

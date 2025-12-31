@@ -23,7 +23,7 @@
     <body>       
       
         <div>
-            <h2 style="color:green">Select a day you remember</h2>
+            <h3 style="color:green">Select a day you remember</h3>
             <b>
                 Select a date that remembers your childhood:
                 <input type="date" 
@@ -34,7 +34,7 @@
         </div>
 
         <div>
-            <h2 style="color:green">Select a Date Range within 2024</h2>
+            <h3 style="color:green">Select a Date Range within 2024</h3>
             <form id="dateRangeForm">
                 <label for="startDate">Start Date:</label>
                 <input type="date" id="startDate" name="startDate" required>
@@ -47,8 +47,8 @@
             <div class="resultDate" id = "resultDate"></div>
         </div>
 
-        <div class="container">
-            <h2 style="color:green">Select a future Date </h2>
+        <div style="width: 12%;">
+            <h3 style="color:green">Select a future Date </h3>
             <form>
                 <div class="mb-3">
                     <label for="datepicker" class="form-label">Choose Date:</label>
@@ -57,8 +57,29 @@
             </form>
             <div class="bookDate" id="selectedDate2"></div>
         </div>
-        
-        <br>    
+
+        <br><br>
+        <h3 style="color:green">Login Popup</h3>
+        <details>
+            username: admin , password: 1234
+        </details>
+        <!-- Trigger button -->
+        <button id="loginBtn" class="lgn">Login</button>
+
+        <!-- Overlay -->
+        <div id="overlay"></div>
+
+        <!-- Popup -->
+        <div id="popup">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h2>Login</h2>
+            <div id="errorMsg" class="error"></div>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="submitLogin">Submit</button>
+        </div>
+
+        <br><br>    
 
         <div class="pagination">
             <a href="page2.html"><</a>
@@ -69,5 +90,38 @@
             <a href="page4.html">></a>
         </div>
 
+        <script>
+            $(document).ready(function() {
+                // Show popup
+                $("#loginBtn").click(function() {
+                    $("#overlay, #popup").fadeIn(200);
+                });
+
+                // Close popup
+                $("#closePopup, #overlay").click(function() {
+                    $("#overlay, #popup").fadeOut(200);
+                    $("#errorMsg").text(""); // Clear error
+                });
+
+                // Handle login submit
+                $("#submitLogin").click(function() {
+                    let username = $("#username").val().trim();
+                    let password = $("#password").val().trim();
+
+                    if (username === "" || password === "") {
+                        $("#errorMsg").text("Please enter both username and password.");
+                        return;
+                    }
+
+                    // Simulate authentication (replace with AJAX call in real app)
+                    if (username === "admin" && password === "1234") {
+                        alert("Login successful!");
+                        $("#overlay, #popup").fadeOut(200);
+                    } else {
+                        $("#errorMsg").text("Invalid username or password.");
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

@@ -82,7 +82,8 @@
       <br><br>
       <div id="drag">Click to Drag</div>
       <br>
-      <div id="accordion">Pizza Tips
+      <h4 style="color: green;">Pizza Tips</h4>
+      <div id="accordion" class="tips">
         <div>Pizza Main Ingredient</div>
         <div>Flour</div>
         <div>Temperature for baking</div>
@@ -110,5 +111,38 @@
         <a href="page4.html">4</a>    
         <a href="page2.html">></a>
       </div>
+
+
+      <div class="confetti-wrapper"></div>
+
+      <script>     
+      // Generate confetti pieces dynamically  
+        $(document).ready(function () {
+            $('.confetti-wrapper').each(function (index, wrapper) {
+                
+                for (let i = 0; i < 50; i++) {
+                    // Create a new div element with text and a class
+                    let newDiv = $("<div></div>")
+                        .addClass("confetti-piece")
+                        //.text("This is a dynamically created div!")
+                        .css({
+                            "left": `${Math.random() * 100}%`,
+                            "--fall-duration": `${Math.random() * 3 + 3}s`,
+                            "--confetti-color": getRandomColor()
+                        });
+
+                    // Append the new div to the current wrapper
+                    $(wrapper).append(newDiv);
+
+                } 
+            });
+
+            // Function to get a random color
+            function getRandomColor() {
+                const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+        });
+      </script>
     </body>
 </html>

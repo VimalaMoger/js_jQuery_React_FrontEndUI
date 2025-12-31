@@ -96,12 +96,16 @@ tfoot td {
   position: relative;
   position: center;
   background: rgb(51, 168, 177);
-  border-color: darkblue;
+  border-color: black;
   border-radius: 30%;
   border-style: double;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left-width: 1;
+  border-top-left-radius: var(--r);
+  border-right-width: 1;
+  border-top-right-radius: var(--r);
 }
 
 #square1, #square2, #square3, #square4{

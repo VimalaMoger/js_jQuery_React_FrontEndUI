@@ -144,3 +144,222 @@
 .container {
   margin-top: 100px;
 }
+
+#hoverBox {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+  text-align: center;
+  line-height: 200px;
+  font-size: 18px;
+  border: 2px solid #333;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.hoverbox {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Image styling */
+.hoverbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Overlay styling */
+.hoverbox .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Hover effects */
+.hoverbox:hover {
+    transform: scale(1.03);
+}
+
+.hoverbox:hover img {
+    transform: scale(1.1);
+}
+
+.hoverbox:hover .overlay {
+    opacity: 1;
+}
+
+
+
+/* Overlay background */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+  /* Popup box */
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: sandybrown;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+#popup h2 {
+  margin-top: 0;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+#loginBtn {
+  width: 20%;
+  padding: 10px;
+  background: #9e3d0fe8;
+  color: rgb(123, 255, 0);
+  border: none;
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#loginBtn :hover {
+  background: #218838;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.lgn{
+  aspect-ratio: 1;
+  clip-path: polygon(50% 0,
+    calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+    calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+    calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+    calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+   ); 
+}
+
+
+button {  
+  border: 5px solid #0000;
+  border-radius: 25px;
+  background: linear-gradient(#FF4E50,#40C0CB) border-box;
+  background-clip: border-area; /* The new added value */
+}
+
+.hvr, #ovrl {
+  --r: 30px; /* control the folded part */
+  
+  background: 
+    linear-gradient(90deg,#0007,#0000 calc(var(--r)/2) calc(100% - var(--r)/2),#0007) 
+    #88C425;
+  border-radius: 0 0 var(--r) var(--r);
+  --_m:0,#0000 100%,#000 calc(100% + 1px);
+  mask:
+    radial-gradient(var(--r) at 100% var(--_m)) no-repeat,
+    radial-gradient(var(--r) at 0    var(--_m)) 100% 0 no-repeat,
+    linear-gradient(#0000 var(--r),#000 0);
+  mask-size: var(--r);
+}
+
+.tips {
+  --s: 10px;  /* control the size (height of the spikes) */
+  --a: 90deg; /* control the angle */
+  
+  mask: 
+    repeating-conic-gradient(from calc(180deg - var(--a)/2) at 50% var(--s),#000 0 var(--a),#0000 0 180deg) 
+    50% calc(-1*var(--s))/calc(2*var(--s)*tan(var(--a)/2));
+}
+
+iframe {
+  border: 1px;
+  margin-top: 2px;
+}
+.left {
+  width: 450px;
+  height: 280px;
+}
+.right {
+  width: 900px;
+  height: 900px;
+}
+
+.confetti-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevent interaction */
+  overflow: hidden;
+}
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 1;
+  }
+}
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: var(--confetti-color, red);
+  opacity: 0.9;
+  animation: confetti-fall var(--fall-duration, 4s) linear infinite;
+}
+
+
+
