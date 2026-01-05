@@ -57,6 +57,14 @@
             </form>
             <div class="bookDate" id="selectedDate2"></div>
         </div>
+        
+        <p style="color: green;">Double click to copy text</p>
+        <input type="text" id ="field1" style="width: 25%;" placeholder="Type something here"><br>
+
+        <input type="text" id ="field2" placeholder="Double click to paste here" style="width: 25%;"  readonly><br>
+        
+        <input type="button" id="copyText" value="Copy text"><br>
+        
 
         <br><br>
         <h3 style="color:green">Login Popup</h3>
@@ -121,6 +129,20 @@
                         $("#errorMsg").text("Invalid username or password.");
                     }
                 });
+            });
+
+            // copy text on double click
+
+            $("#copyText").on("dblclick", function() {                
+                
+                let copiedText= $("#field1").val().trim();
+                if(copiedText === "") {
+                    
+                    alert("Please enter text to copy.");
+                    return;
+                }else{
+                    $("#field2").val(copiedText);
+                }               
             });
         </script>
     </body>
