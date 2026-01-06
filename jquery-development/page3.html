@@ -58,14 +58,44 @@
             <div class="bookDate" id="selectedDate2"></div>
         </div>
         
-        <p style="color: green;">Double click to copy text</p>
-        <input type="text" id ="field1" style="width: 25%;" placeholder="Type something here"><br>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; margin-top: 20px;">
+          
+            <div>
+                <h3 style="color: green;">Double click to copy text</h3>
+                <input type="text" id ="field1" style="width: 25%;" placeholder="Type something here"><br>
 
-        <input type="text" id ="field2" placeholder="Double click to paste here" style="width: 25%;"  readonly><br>
-        
-        <input type="button" id="copyText" value="Copy text"><br>
-        
+                <input type="text" id ="field2" placeholder="Double click to paste here" style="width: 25%;"  readonly><br>
+                
+                <input type="button" id="copyText" value="Copy text"><br>
+            </div>           
 
+            <div class="dropdown">
+                <p style="color:green">Color Blend Selection Dropdown</p>
+                <button class="dropbtn">Select Color</button>
+                <div class="dropdown-content">
+                    <a href="#">Red</a>
+                    <a href="#">Yellow</a>
+                    <a href="#">Blue</a>
+                    <a href="#">(Yellow+Blue) --- Green</a>
+                    <a href="#">(Yellow+Red) --- Orange</a>
+                    <a href="#">(Red+Blue) --- Purple</a>
+                    <a href="#">(Red+Orange) --- Vermilion</a>
+                    <a href="#">(Yellow+Orange) --- Yellowish orange</a>
+                    <a href="#">(Red+Purple) --- Magenta</a>
+                    <a href="#">(Blue+Purple) --- Blue Voilet</a>
+                    <a href="#">(Yellow+Green) --- Yellowish green</a>
+                    <a href="#">(Blue+Green) --- Teal</a>
+                    <a href="#">(Red+Green) --- Brown</a>
+                    <a href="#">(Black+White) --- Gray</a>
+                    <a href="#">(Blue+Orange) --- Shade of Brown</a>
+                    <a href="#">(Yellow+Purple) --- Shade of Brown</a>
+                    <a href="#">Cyan --- Greenish Blue</a>
+                    <a href="#">Red+Blue+Yellow --- Brown</a>
+                </div>
+            </div>
+        </div>
+        
+        <br><br>
         <br><br>
         <h3 style="color:green">Login Popup</h3>
         <details>
@@ -143,6 +173,11 @@
                 }else{
                     $("#field2").val(copiedText);
                 }               
+            });
+
+            // scrollbar for dropdown
+            $(".dropdown-content a").on("click", function() {
+                alert("You selected: " + $(this).text());
             });
         </script>
     </body>

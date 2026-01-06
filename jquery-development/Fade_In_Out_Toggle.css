@@ -324,10 +324,12 @@ iframe {
   border: 1px;
   margin-top: 2px;
 }
+
 .left {
   width: 450px;
   height: 280px;
 }
+
 .right {
   width: 900px;
   height: 900px;
@@ -342,6 +344,7 @@ iframe {
   pointer-events: none; /* Prevent interaction */
   overflow: hidden;
 }
+
 @keyframes confetti-fall {
   0% {
     transform: translateY(-100%) rotate(0deg);
@@ -360,6 +363,45 @@ iframe {
   opacity: 0.9;
   animation: confetti-fall var(--fall-duration, 4s) linear infinite;
 }
+
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  }
+
+  /* Dropdown content */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    max-height: 150px; /* Limit height */
+    overflow-y: auto;  /* Enable vertical scroll */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+  }
+
+  /* Dropdown links */
+  .dropdown-content a {
+    color: brown;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Show dropdown on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
 
 
 
