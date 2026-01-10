@@ -58,7 +58,7 @@
             <div class="bookDate" id="selectedDate2"></div>
         </div>
         
-        <div style="display:grid; grid-template-columns: 1fr 1fr; margin-top: 20px;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
           
             <div>
                 <h3 style="color: green;">Double click to copy text</h3>
@@ -93,6 +93,12 @@
                     <a href="#">Red+Blue+Yellow --- Brown</a>
                 </div>
             </div>
+
+            <form enctype="multipart/form-data">
+                <input id = "file" name="file" type="file" multiple />
+                <input type="button" id="uploadbutton" value="Upload" />
+                <div id="uploadStatus"></div>
+            </form>
         </div>
         
         <br><br>
@@ -178,6 +184,31 @@
             // scrollbar for dropdown
             $(".dropdown-content a").on("click", function() {
                 alert("You selected: " + $(this).text());
+            });
+
+            // file upload 
+            $(document).ready(function () {
+                $("#uploadbutton").click(function () {
+                    let formData = new FormData();   
+                    let files = $("#file")[0].files; // FileList object         
+                    
+                    var filename = $("#file").val().split('\\').pop(); // Get the file name only
+
+                    // upload status
+                    if(filename === "") {
+                        $("#uploadStatus").html("<p style='color:red;'>Please select a file to upload.</p>");
+                        return;
+                    } else {
+                        // Clear previous list
+                        $("#uploadStatus").empty();
+
+                        // Loop through files using $.each()
+                        $("#uploadStatus").html("<p style='color:green;'>Files uploaded successfully!</p>");
+                        $.each(files, function (index, file) {
+                            $("#uploadStatus").append("<li>" + file.name + "</li>");
+                        });
+                    }                    
+                });
             });
         </script>
     </body>
