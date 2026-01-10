@@ -88,14 +88,17 @@ $(document).ready(function(){
      $("#topbar1").click(function(){
         $("#panel").slideDown(1000);
     });
+
     //slides up
     $("#topbar2").click(function(){
         $("#panel").slideUp(1000);
     });
+
     //Toggles
     $("#topbar3").click(function(){
         $("#panel").slideToggle(1000);
     }); 
+
     //jQuery chaining
     $("#topbar4").click(function(){
         $("#panel").css("background","green")
@@ -117,10 +120,12 @@ $(document).ready(function(){
     //jQuery get content
     $("#button1").click(function(){
         alert($("#milklist").text());
-    })
+    });
+
     $("#button2").click(function(){
         alert($("#milklist").html());
-    })
+    });
+
     //Get content value
     $("#getVal").click(function(){
         alert("Hey, this is " + $("#name").val());
@@ -135,9 +140,11 @@ $(document).ready(function(){
     $("#resetText").click(function(){
         $("#text").html("Your Name: <input type=\"text\" id=\"name\" value=\"\">");
     });
+
     $("#resetHtml").click(function(){
         $("#text").html("<b>Your Name: <input type=\"text\"</b>");
     });
+
     $("#resetVal").click(function(){
         $("#name").val("Bob Smith");
     });
@@ -151,6 +158,7 @@ $(document).ready(function(){
     $("#addItem1").click(function(){
         $("#milklist").append("<li>Yogurt</li>");
     });
+
     $("#addItem2").click(function(){
         $("#milklist").prepend("<li>Cream</li>");
     });
@@ -159,6 +167,7 @@ $(document).ready(function(){
     $("#before").click(function(){
         $("img").before("<b>It's an Art</b>");
     });
+
     $("#after").click(function(){
         $("img").after("<b>It's an Art</b>");
     });
@@ -226,10 +235,12 @@ $(document).ready(function(){
     $(".useCSS").click(function(){
         $("td").addClass("useCSSStyle");
     });
+
     //remove CSS class
     $(".removeCSS").click(function(){
         $("td").removeClass("useCSSStyle");
     });
+
     //ToggleCSS
     $(".toggleCSS").click(function(){
         $("td").toggleClass("useCSSStyle");
@@ -240,13 +251,14 @@ $(document).ready(function(){
         $(".stop").prop("disabled", false);
         $("#clk1").hide();
         $("#square1").animate({left: '800px', opacity:0.55, height:"toggle", width:'60px'}, 1000);
-    }) 
+    });
+
     //Animate to bigger size
     $("#square2").click(function(){
         $(".stop").prop("disabled", false);
         $("#clk2").hide();
         $("#square2").animate({left: '800px', opacity:0.25,height:"+=200px", width:"+=200px"}, 1000);
-    }) 
+    }); 
 
     //Queue functionality
     $("#square3").click(function(){
@@ -270,28 +282,27 @@ $(document).ready(function(){
 
     //console output showing x and y co-ordinates values
     document.addEventListener('mousemove', function(event) {
-     console.log('Mouse X:', event.clientX, 'Mouse Y:', event.clientY);
-     //console.log('Mouse X:', event.pageX, 'Mouse Y:', event.pageY);
-     const coordinates = document.getElementById('coordinates');
+        console.log('Mouse X:', event.clientX, 'Mouse Y:', event.clientY);
+        //console.log('Mouse X:', event.pageX, 'Mouse Y:', event.pageY);
+        const coordinates = document.getElementById('coordinates');
     });
 
     //x and y co-ordinates display on html document on browser
-     document.addEventListener('mousemove', function(event) {
-         const x = event.clientX;
-         const y = event.clientY;
-         coordinates.textContent = `Mouse X: ${x}, Mouse Y: ${y}`;
-     });
+    document.addEventListener('mousemove', function(event) {
+        const x = event.clientX;
+        const y = event.clientY;
+        coordinates.textContent = `Mouse X: ${x}, Mouse Y: ${y}`;
+    });
 
+    //animation : mousemove event where the text moves with mouse movement
+    const follower = document.querySelector('#heading2');
 
-     //animation : mousemove event where the text moves with mouse movement
-     const follower = document.querySelector('#heading2');
-
-     document.addEventListener('mousedown', function(event) {
-         const x = event.clientX;
-         const y = event.clientY;
-         follower.style.left = `${x}px`;
-         follower.style.top = `${y}px`;
-     });  
+    document.addEventListener('mousedown', function(event) {
+        const x = event.clientX;
+        const y = event.clientY;
+        follower.style.left = `${x}px`;
+        follower.style.top = `${y}px`;
+    });  
 
     // Get the audio element
     const audioElement = document.getElementById("myAudio");
@@ -323,10 +334,10 @@ $(document).ready(function(){
                     "color": "black"
                 }).text("Hover over me");
                 }
-            );
+        );
     });
 
-    //handle login submit
+    //Login submit
 
     $(document).ready(function() {
         // Show popup
@@ -350,14 +361,14 @@ $(document).ready(function(){
                     return;
             }
 
-            // Simulate authentication (replace with AJAX call in real app)
+            // Simulate authentication
             if (username === "admin" && password === "1234") {
                 alert("Login successful!");
                 $("#overlay, #popup").fadeOut(200);
             } else {
                 $("#errorMsg").text("Invalid username or password.");
             }
-        });
+        });        
     });
 
 });
