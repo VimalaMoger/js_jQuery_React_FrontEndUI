@@ -221,7 +221,7 @@
   z-index: 999;
 }
 
-  /* Popup box */
+/* Popup box */
 #popup {
   display: none;
   position: fixed;
@@ -400,6 +400,49 @@ iframe {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+.letter {
+  position: absolute;
+  pointer-events: none; /* Don't block mouse events */
+  font-size: 2em;
+  opacity: 0.8;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+.wave {
+  font-size: 2.5rem;
+  display: inline-block;
+}
+
+/* Each letter will be animated separately */
+.wave span {
+  display: inline-block;
+  animation: wave 1.s infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+#heading1 span {
+  display: inline-block;
+  animation: wave 1.5s infinite;
+}
+
+/* Wave animation keyframes */
+@keyframes heading-wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+
 
 
 

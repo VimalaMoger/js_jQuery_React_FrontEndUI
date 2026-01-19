@@ -23,7 +23,8 @@
     <body>
 
       <h1 id="heading1">My First jQuery Web Page</h1>
-      <h2 id="heading2" style="color: rgb(214, 40, 214);">This text moves with mouse movement</h2>
+      <h2 id="heading2" style="color: rgba(19, 124, 150, 0.733);">This text moves with mouse movement</h2>
+    
       <div id="info">
         <p id="text">Name: <input type="text" id ="name" value="John Smith"></p>
         <button id="getVal">Get Name</button>
@@ -116,33 +117,57 @@
       <div class="confetti-wrapper"></div>
 
       <script>     
-      // Generate confetti pieces dynamically  
+      
+        // This text moves with mouse movement
         $(document).ready(function () {
-            $('.confetti-wrapper').each(function (index, wrapper) {
-                
-                for (let i = 0; i < 50; i++) {
-                    // Create a new div element with text and a class
-                    let newDiv = $("<div></div>")
-                        .addClass("confetti-piece")
-                        //.text("This is a dynamically created div!")
-                        .css({
-                            "left": `${Math.random() * 100}%`,
-                            "--fall-duration": `${Math.random() * 3 + 3}s`,
-                            "--confetti-color": getRandomColor()
-                        });
+          const text = $('#heading2').text(); 
+          let letters = text.split("").join("   ");
 
-                    // Append the new div to the current wrapper
-                    $(wrapper).append(newDiv);
+          let index = 0; 
 
-                } 
-            });
+          $(document).on("mousemove", function(e) {
+              // Create a new letter span
+              const $letter = $("<span>")
+                  .addClass("letter")
+                  .text(letters[index])
+                  .css({
+                      left: e.pageX + "px",   //Track mouse position
+                      top: e.pageY + "px",
+                      color: `hsl(${Math.random() * 360}, 100%, 70%)`
+                  });
 
-            // Function to get a random color
-            function getRandomColor() {
-                const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
-                return colors[Math.floor(Math.random() * colors.length)];
-            }
+              $("body").append($letter);
+
+              // Cycle through letters
+              index = (index + 1) % letters.length;
+
+              // Animate fade and remove
+              setTimeout(() => {
+                  $letter.css({
+                    transform: "rotate(20deg)"
+                  });
+              }, 20);
+
+              setTimeout(() => {
+                  $letter.remove();
+              }, 500);
+          });
+        }); 
+        
+        // wave animation for heading1
+        $(document).ready(function(){
+          let text = $("#heading1").text();
+          $("#heading1").empty();
+
+          // Wrap each character in a span with animation delay
+          $.each(text.split(""), function(i, char){
+              let delay = i * 0.1; // delay between letters
+              $("#heading1").append(
+                  $("<span>").text(char).css("animation-delay", delay + "s")
+              );
+          });
         });
+      
       </script>
     </body>
 </html>

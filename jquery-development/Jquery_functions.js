@@ -294,16 +294,6 @@ $(document).ready(function(){
         coordinates.textContent = `Mouse X: ${x}, Mouse Y: ${y}`;
     });
 
-    //animation : mousemove event where the text moves with mouse movement
-    const follower = document.querySelector('#heading2');
-
-    document.addEventListener('mousedown', function(event) {
-        const x = event.clientX;
-        const y = event.clientY;
-        follower.style.left = `${x}px`;
-        follower.style.top = `${y}px`;
-    });  
-
     // Get the audio element
     const audioElement = document.getElementById("myAudio");
 
