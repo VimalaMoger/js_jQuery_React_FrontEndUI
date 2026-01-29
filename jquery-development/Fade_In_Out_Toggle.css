@@ -320,6 +320,8 @@ button {
     50% calc(-1*var(--s))/calc(2*var(--s)*tan(var(--a)/2));
 }
 
+/* Iframe styles */
+
 iframe {
   border: 1px;
   margin-top: 2px;
@@ -418,13 +420,13 @@ iframe {
   }
 }
 
-.wave {
+#heading1 {
   font-size: 2.5rem;
   display: inline-block;
 }
 
 /* Each letter will be animated separately */
-.wave span {
+#heading1 span {
   display: inline-block;
   animation: wave 1.s infinite;
   animation-delay: calc(var(--i) * 0.1s);

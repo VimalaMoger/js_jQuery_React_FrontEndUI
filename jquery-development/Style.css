@@ -49,13 +49,16 @@ tfoot td {
   font-weight: bold;
 }
 
-#milk, #milklist{
-  margin: auto;
-  width: 50%;
-  border: 3px solid yellowgreen;
-  padding: 10px;
-  border-radius: 20%;
-  border-color: blue;
+#milk {
+  margin: 0.75rem auto;
+  width: 90%;
+  max-width: 520px;
+  border: 2px solid #1e90ff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f8fbff;
+  box-shadow: 0 1px 4px rgba(30,144,255,0.08);
+  text-align: center;
 }
 
 #panel{     
@@ -81,9 +84,8 @@ tfoot td {
   margin: auto;
   width: 100px;
   height: 55px;
-  color:wheat;
+  color: #000; /* text color - changed to black for WCAG AA contrast */
   position: relative;
-  position: center;
   background: rgb(51, 168, 177);
   border-color: black;
   border-radius: 30%;
@@ -91,9 +93,9 @@ tfoot td {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left-width: 1;
+  border-left-width: 1px;
   border-top-left-radius: var(--r);
-  border-right-width: 1;
+  border-right-width: 1px;
   border-top-right-radius: var(--r);
 }
 
@@ -105,6 +107,10 @@ tfoot td {
   background-color: rgb(142, 165, 42);
   position: relative;
   border-style: double;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 #hidden,#visible, #btn{
@@ -113,25 +119,28 @@ tfoot td {
 }
 
 #clk1, #clk2, #clk3, #clk4{
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-right: 10px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
 }
 
 #drag{ 
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: rgb(209, 180, 15);
-  transform: rotate(0deg); /* Rotate square to make diamond */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(109, 131, 31, 0.2);
-  margin: auto;
-  border-radius: 10%;
-  margin-top: 70px;
-  cursor: move;
+  color: #000; /* changed to black to meet WCAG contrast against the yellow background */
+  text-align: center;
+  line-height: 150px;
+  border-radius: 8px;
+  cursor: move; 
+  left: 50%; 
+}
+
+/* Make draggable element focusable and clearly visible when focused (keyboard users) */
+#drag:focus {
+  outline: 3px solid rgba(0,0,0,0.8);
+  outline-offset: 3px;
 }
 
 #accordion{
@@ -148,3 +157,93 @@ tfoot td {
   font-size: x-large;
   font-weight: bold;
 }
+
+/* Ensure #heading2 is large and readable */
+#heading2 {
+  font-size: 1.5rem; /* ~24px - qualifies as large text */
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000; /* high-contrast black to meet WCAG large-text (>=3:1) */
+}
+
+/* Ensure jQuery UI generated title (eg. #ui-id-1) meets contrast */
+#ui-id-1 {
+  color: #000 !important;
+}
+
+/* Skip link: hidden until focused for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 10px;
+  top: 10px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  z-index: 1000;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Center the stop control */
+.stop {
+  display: block;
+  margin: 0.5rem auto;
+}
+
+/* Space between the panel section and the square controls */
+#squares {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Simple decorative separator line */
+.section-sep {
+  border: 0;
+  border-top: 1px solid #d0d6dd;
+  height: 0;
+  margin: 0.75rem 0 1rem 0;
+}
+
+/* Space between #rules table and the vertical control column */
+#rules {
+  margin-right: 1.5rem;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+/* Utility classes to replace inline styles */
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-gap-8 { display: flex; gap: 8px; }
+.flex-gap-100 { display: flex; gap: 100px; }
+.display-block { display: block; }
+.inline-block { display: inline-block; }
+.justify-around { display: flex; justify-content: space-around; }
+.three-col-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 20px; }
+.width-15 { width: 15%; }
+.width-25 { width: 25%; }
+.green-text { color: green; }
+.no-border { border: 0; }
+.rules-inline { display: inline-block; border-color: blue; }
+/* Utilities added for page2 formatting cleanup */
+.bg-green { background: green; padding: 6px; border-radius: 4px; color: #fff; display: inline-block; }
+.mt-15 { margin-top: 15px; }
+.mb-15 { margin-bottom: 15px; }
+.flex-space-evenly { display: flex; justify-content: space-evenly; }
+.img-full { width: 100%; height: auto; display: block; }
+.dropdown { margin-left: 15px; }

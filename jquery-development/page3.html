@@ -1,139 +1,152 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <title>jQuery Functionalities Demo - Page 3</title>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
         integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
         crossorigin="anonymous"></script>
         
-        <script src = "jquery_functions.js"></script>
+        <script src="Jquery_functions.js"></script>
 
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="fade_In_Out_Toggle.css">
-        <style>
-          body {
-            background-image: url('../images/backgroundImg.jfif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-          }
-        </style>
+        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="Fade_In_Out_Toggle.css">
+                <style>
+                    body {
+                        background-image: url('images/backgroundImg.jfif');
+                        background-repeat: no-repeat;
+                        background-attachment: fixed;
+                        background-size: 100% 100%;
+                    }
+                </style>
     </head>
-    <body>       
-      
-        <div>
-            <h3 style="color:green">Select a day you remember</h3>
-            <b>
-                Select a date that remembers your childhood:
-                <input type="date" 
-                            id="Test_Date">
-            </b>
-            <br>
-            <div class="output" id="selectedDate"></div>
-        </div>
-
-        <div>
-            <h3 style="color:green">Select a Date Range within 2024</h3>
-            <form id="dateRangeForm">
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" name="startDate" required>
-
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" name="endDate" required>
-                <!-- <button id="getYearBtn">Validate</button> -->
-            </form>
-            <br>
-            <div class="resultDate" id = "resultDate"></div>
-        </div>
-
-        <div style="width: 12%;">
-            <h3 style="color:green">Select a future Date </h3>
-            <form>
-                <div class="mb-3">
-                    <label for="datepicker" class="form-label">Choose Date:</label>
-                    <input type="text" class="form-control"  id="datepicker" placeholder="MM/DD/YYYY" autocomplete="off">
-                </div>
-            </form>
-            <div class="bookDate" id="selectedDate2"></div>
-        </div>
-        
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
-          
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <header role="banner">
+            <h1>jQuery Functionalities Demo - Page 3</h1>
+        </header>
+        <nav role="navigation">
+            <p>This page demonstrates various jQuery functionalities including date selection, text copying, dropdowns, file uploads, and a login popup.</p>
+        </nav>    
+        <main role="main-content">  
             <div>
-                <h3 style="color: green;">Double click to copy text</h3>
-                <input type="text" id ="field1" style="width: 25%;" placeholder="Type something here"><br>
-
-                <input type="text" id ="field2" placeholder="Double click to paste here" style="width: 25%;"  readonly><br>
-                
-                <input type="button" id="copyText" value="Copy text"><br>
-            </div>           
-
-            <div class="dropdown">
-                <p style="color:green">Color Blend Selection Dropdown</p>
-                <button class="dropbtn">Select Color</button>
-                <div class="dropdown-content">
-                    <a href="#">Red</a>
-                    <a href="#">Yellow</a>
-                    <a href="#">Blue</a>
-                    <a href="#">(Yellow+Blue) --- Green</a>
-                    <a href="#">(Yellow+Red) --- Orange</a>
-                    <a href="#">(Red+Blue) --- Purple</a>
-                    <a href="#">(Red+Orange) --- Vermilion</a>
-                    <a href="#">(Yellow+Orange) --- Yellowish orange</a>
-                    <a href="#">(Red+Purple) --- Magenta</a>
-                    <a href="#">(Blue+Purple) --- Blue Voilet</a>
-                    <a href="#">(Yellow+Green) --- Yellowish green</a>
-                    <a href="#">(Blue+Green) --- Teal</a>
-                    <a href="#">(Red+Green) --- Brown</a>
-                    <a href="#">(Black+White) --- Gray</a>
-                    <a href="#">(Blue+Orange) --- Shade of Brown</a>
-                    <a href="#">(Yellow+Purple) --- Shade of Brown</a>
-                    <a href="#">Cyan --- Greenish Blue</a>
-                    <a href="#">Red+Blue+Yellow --- Brown</a>
-                </div>
+                <h2 class="green-text">Select a day you remember</h2>
+                <b>
+                    <label for="Test_Date">Select a date that remembers your childhood:</label>
+                    <input type="date" id="Test_Date">
+                </b>
+                <br>
+                <div class="output" id="selectedDate"></div>
             </div>
 
-            <form enctype="multipart/form-data">
-                <input id = "file" name="file" type="file" multiple />
-                <input type="button" id="uploadbutton" value="Upload" />
-                <div id="uploadStatus"></div>
-            </form>
-        </div>
+            <div>
+                <h2 class="green-text">Select a Date Range within 2024</h2>
+                <form id="dateRangeForm">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate" required>
+
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate" required>
+                    <!-- <button id="getYearBtn">Validate</button> -->
+                </form>
+                <br>
+                <div class="resultDate" id = "resultDate"></div>
+            </div>
+
+            <div>
+                <h2 class="green-text">Select a future Date</h2>
+                <form>
+                    <div class="mb-3 width-15">
+                        <label for="datepicker" class="form-label">Choose Date:</label>
+                        <input type="text" class="form-control"  id="datepicker" placeholder="MM/DD/YYYY" autocomplete="off">
+                    </div>
+                </form>
+                <div class="bookDate" id="selectedDate2"></div>
+            </div>
         
-        <br><br>
-        <br><br>
-        <h3 style="color:green">Login Popup</h3>
-        <details>
-            username: admin , password: 1234
-        </details>
-        <!-- Trigger button -->
-        <button id="loginBtn" class="lgn">Login</button>
+            <div class="three-col-grid">
+            
+                <div>
+                    <h2 class="green-text">Double click to copy text</h2>
+                    <label for="field1">Source text:</label>
+                    <input type="text" placeholder="Type here"><br>
 
-        <!-- Overlay -->
-        <div id="overlay"></div>
+                    <label for="field2">Destination text:</label>
+                    <input type="text" placeholder="paste here" readonly><br>
+                    
+                    <input type="button" id="copyText" value="Copy text"><br>
+                </div>           
 
-        <!-- Popup -->
-        <div id="popup">
-            <span class="close-btn" id="closePopup">&times;</span>
-            <h2>Login</h2>
-            <div id="errorMsg" class="error"></div>
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <button id="submitLogin">Submit</button>
-        </div>
+                <div class="dropdown">
+                    <p class="green-text">Color Blend Selection Dropdown</p>
+                    <button class="dropbtn">Select Color</button>
+                    <div class="dropdown-content">
+                        <a href="#">Red</a>
+                        <a href="#">Yellow</a>
+                        <a href="#">Blue</a>
+                        <a href="#">(Yellow+Blue) --- Green</a>
+                        <a href="#">(Yellow+Red) --- Orange</a>
+                        <a href="#">(Red+Blue) --- Purple</a>
+                        <a href="#">(Red+Orange) --- Vermilion</a>
+                        <a href="#">(Yellow+Orange) --- Yellowish orange</a>
+                        <a href="#">(Red+Purple) --- Magenta</a>
+                        <a href="#">(Blue+Purple) --- Blue Voilet</a>
+                        <a href="#">(Yellow+Green) --- Yellowish green</a>
+                        <a href="#">(Blue+Green) --- Teal</a>
+                        <a href="#">(Red+Green) --- Brown</a>
+                        <a href="#">(Black+White) --- Gray</a>
+                        <a href="#">(Blue+Orange) --- Shade of Brown</a>
+                        <a href="#">(Yellow+Purple) --- Shade of Brown</a>
+                        <a href="#">Cyan --- Greenish Blue</a>
+                        <a href="#">Red+Blue+Yellow --- Brown</a>
+                    </div>
+                </div>
 
-        <br><br>    
+                <form enctype="multipart/form-data">
+                    <label for="file">Choose files:</label>
+                    <input id = "file" name="file" type="file" multiple />
+                    <input type="button" id="uploadbutton" value="Upload" />
+                    <div id="uploadStatus"></div>
+                </form>
+            </div>
+            
+            <br><br>
+            <br><br>
+            <h2 class="green-text">Login Popup</h2>
+            <details>
+                username: admin , password: 1234
+            </details>
+            <!-- Trigger button -->
+            <button id="loginBtn" class="lgn">Login</button>
 
-        <div class="pagination">
-            <a href="page2.html"><</a>
-            <a href="index.html">1</a>
-            <a href="page2.html">2</a>
-            <a href="page3.html" class="active">3</a>     
-            <a href="page4.html">4</a>
-            <a href="page4.html">></a>
-        </div>
+            <!-- Overlay -->
+            <div id="overlay"></div>
 
+            <!-- Popup -->
+            <div id="popup">
+                <span class="close-btn" id="closePopup">&times;</span>
+                <h3>Login</h3>
+                <div id="errorMsg" class="error"></div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Username">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Password">
+                <button id="submitLogin">Submit</button>
+            </div>   
+        </main>
+        
+        <footer role="contentinfo">
+            <div class="pagination">
+                <a href="page2.html">&lt;</a>
+                <a href="index.html">1</a>
+                <a href="page2.html">2</a>
+                <a href="page3.html" class="active">3</a>     
+                <a href="page4.html">4</a>
+                <a href="page4.html">&gt;</a>
+            </div>
+            <p>© 2025 My Webpage</p>
+        </footer>
         <script>
             $(document).ready(function() {
                 // Show popup

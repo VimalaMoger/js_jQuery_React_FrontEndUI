@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+      <title>jQuery Development - Page 2</title>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
         integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
         crossorigin="anonymous"></script>
         
-        <script src = "jquery_functions.js"></script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="fade_In_Out_Toggle.css">
+        <script src="Jquery_functions.js"></script>
+        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="Fade_In_Out_Toggle.css">
         <style>
           body {
-            background-image: url('../images/backgroundImg.jfif');
+            background-image: url('images/backgroundImg.jfif');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
           }
         </style>
     </head>
-    <body>  
-        <div style="display:flex; justify-content:space-around;">
-          <div style="display:inline-block;">
+    <body>
+      <a class="skip-link" href="#main-content">Skip to main content</a>
+      <header role="banner">
+        <h1>jQuery Development - Page 2</h1>
+      </header>
+      <nav role="navigation">
+        <p>This page demonstrates various jQuery functionalities including event handling, DOM manipulation, file download, and UI interactions.</p>
+      </nav>
+
+      <main role="main-content">
+        <div class="justify-around">
+          <div class="inline-block">
             <div>
               <button id="button1">Show Text</button>
               <button id="button2">Show Html</button>
             </div>
-            <h5 id="milk" >Milk Product list</h5>
+            <h2 id="milk">Milk Product list</h2>
             <div id="list">
               <ul id="milklist">
                 <li>Milk</li>
@@ -43,8 +53,8 @@
             </div>
           </div>
           <br><br>
-          <div style="display:flex;"> 
-            <table id="rules" style="display:inline-block;border-color:blue;">
+          <div class="flex"> 
+            <table id="rules" class="rules-inline">
                   <caption>
                     Front-end web developer course 2025
                   </caption>
@@ -82,17 +92,17 @@
         </div>
 
         <br><br>
-        <p style="background: green";>Mouse moving position</p>
+        <p class="bg-green">Mouse moving position</p>
         <div id="coordinates">Mouse X: 0, Mouse Y: 0</div>
 
-        <div style="margin-top: 15px;">
-          <div style="margin-bottom: 15px;">
+        <div class="mt-15">
+          <div class="mb-15">
             <a href="javascript:alert('Hi, I was clicked');">Click Me</a>
           </div>
           <br>
-          <p style="color:green"><b>Art Image to download free:</b></p>
+
           <a href="images/img4.jpg" id="ref" download>
-            <img id = "thumbnail" src="../images/img4.jpg" alt="Art" width="120", height="90">
+            <img id="thumbnail" src="images/img4.jpg" alt="Art" width="120" height="90">
           </a>
           <br><br>
           <button id="viewImage">View the image</button>
@@ -106,30 +116,33 @@
         <br>
         <div id="audioclip">
           <audio id="myAudio" controls>
-            <source src="images/audio1.mp3">
-            type="audio/mp3">
+            <source src="images/audio1.mp3" type="audio/mp3">
           </audio>
         
           <button id="remove">Remove Audio</button>
         </div>  
         <br><br>
 
-        <div id="hoverText" style="display: flex;justify-content: space-evenly;">
+        <div id="hoverText" class="flex-space-evenly">
           <div id="hoverBox" class="hvr">Hover over me</div>    
           
           <div class="hoverbox">
-            <img id = "thumbnailII" src="images/symbols.jpg" alt="Symbols" width="120", height="90">
+            <img id="thumbnailII" src="images/symbols.jpg" alt="Symbols" width="120" height="90">
             <div class="overlay" id="ovrl">This is overlay text on hover</div>
           </div>
         </div>
-        <br>
+      </main>
+      
+      <footer role="contentinfo">
         <div class="pagination">
-          <a href="index.html"><</a>
+          <a href="index.html">&lt;</a>
           <a href="index.html">1</a>
           <a href="page2.html" class="active">2</a>
           <a href="page3.html">3</a>     
           <a href="page4.html">4</a>
-          <a href="page3.html">></a>
+          <a href="page3.html">&gt;</a>
         </div>
+        <p>© 2025 Front-End Development</p>
+      </footer>
     </body>
     </html>    

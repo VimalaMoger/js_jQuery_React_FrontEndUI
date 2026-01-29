@@ -25,9 +25,6 @@ $(document).ready(function(){
     $("#milk").on({
          mouseenter: function(){
              $(this).css("background-color", "yellow");
-             $(this).click(function(){
-                alert("The color is changed");
-             })
          },
          mouseleave: function(){
              $(this).css("background-color", "pink");
@@ -35,6 +32,9 @@ $(document).ready(function(){
          click: function(){
              $(this).css("background-color", "cyan");
          }
+    });
+    $("#milk").click(function(){
+        alert("You have clicked on Milk products, color changed to pink");            
     });
 
     //hide - show a text
@@ -105,17 +105,18 @@ $(document).ready(function(){
         .slideUp(1000).slideDown(1000);
     });
 
-    //draggable
-    $("#drag").click(function(){
-        $(function(){
-            $("#drag").draggable();
+    $(function() {
+        // Enable draggable functionality
+        $("#drag").draggable({
+            //containment: "window", // Keep inside the browser window
+            scroll: false           // Prevent scrolling while dragging
         });
     });
 
-    //Accordian menu
-    $(function(){
+    //Accordion menu (guarded)
+    if (typeof $ !== 'undefined' && $("#accordion").length && $.fn.accordion) {
         $("#accordion").accordion();
-    });
+    }
 
     //jQuery get content
     $("#button1").click(function(){
@@ -126,8 +127,15 @@ $(document).ready(function(){
         alert($("#milklist").html());
     });
 
+     $('#name').val('');
     //Get content value
     $("#getVal").click(function(){
+        let text = $("#name").val();
+        if(text == ""){
+            alert("Please enter your name");
+            $('#name').focus();
+            return;
+        }
         alert("Hey, this is " + $("#name").val());
     });
 
@@ -177,9 +185,26 @@ $(document).ready(function(){
         $("#audioclip").remove();// or empty() to clear content
     });
 
-    // display date you remember using jQuery
+    // display date you remember using jQuery and restrict to past dates
+    (function(){
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const todayStr = `${yyyy}-${mm}-${dd}`;
+        // set the max attribute so the datepicker only allows past dates
+        $("#Test_Date").attr("max", todayStr);
+    })();
+
     $("#Test_Date").on("change", function(){
         var selectedDate = $(this).val();
+        const max = $(this).attr('max');
+        if(selectedDate && max && selectedDate > max){
+            $(".output").text("Please select a past date.");
+            // revert to max (today)
+            $(this).val(max);
+            return;
+        }
         $(".output").text("You selected the date: " + selectedDate);
     });
 
@@ -280,31 +305,35 @@ $(document).ready(function(){
             alert("The square stopped rolling!")
     });
 
-    //console output showing x and y co-ordinates values
-    document.addEventListener('mousemove', function(event) {
-        console.log('Mouse X:', event.clientX, 'Mouse Y:', event.clientY);
-        //console.log('Mouse X:', event.pageX, 'Mouse Y:', event.pageY);
-        const coordinates = document.getElementById('coordinates');
-    });
+    // Mouse coordinates: guard element and use single listener
+    (function(){
+        const coordinatesElem = document.getElementById('coordinates');
+        if (!coordinatesElem) return;
 
-    //x and y co-ordinates display on html document on browser
-    document.addEventListener('mousemove', function(event) {
-        const x = event.clientX;
-        const y = event.clientY;
-        coordinates.textContent = `Mouse X: ${x}, Mouse Y: ${y}`;
-    });
+        document.addEventListener('mousemove', function(event) {
+            console.log('Mouse X:', event.clientX, 'Mouse Y:', event.clientY);
+            coordinatesElem.textContent = `Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`;
+        });
+    })();
 
-    // Get the audio element
-    const audioElement = document.getElementById("myAudio");
-
-    // Set the volume to 20%
-    audioElement.volume = 0.1;
+    // Get the audio element and set volume safely
+    (function(){
+        const audioElement = document.getElementById("myAudio");
+        if (audioElement) {
+            try {
+                audioElement.volume = 0.1;
+            } catch (e) {
+                // ignore if browser blocks setting volume
+                console.warn('Unable to set audio volume', e);
+            }
+        }
+    })();
 
     //view image
     $("#viewImage").click(function(){
         const imgSrc = $("#thumbnail").attr("src");
         const imgWindow = window.open("", "Image", "width=600,height=400");
-        imgWindow.document.write(`<img src="${imgSrc}" alt="Art Image" style="width:100%;">`); 
+        imgWindow.document.write(`<img src="${imgSrc}" alt="Art Image" class="img-full">`);
     });
 
     $(document).ready(function() {
@@ -359,6 +388,32 @@ $(document).ready(function(){
                 $("#errorMsg").text("Invalid username or password.");
             }
         });        
+    });
+
+    // Fallback: force-download image when clicking the download anchor
+    $(document).on('click', '#ref', function(e){
+        // Try programmatic fetch+download; if it fails, fall back to navigating to the image
+        e.preventDefault();
+        const href = $(this).attr('href');
+        const filename = $(this).attr('download') || 'download';
+        // Attempt to fetch the resource as a blob and trigger a download
+        fetch(href).then(function(response){
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.blob();
+        }).then(function(blob){
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        }).catch(function(){
+            // If fetch fails (e.g., file:// restrictions), fall back to normal navigation
+            window.location.href = href;
+        });
     });
 
 });

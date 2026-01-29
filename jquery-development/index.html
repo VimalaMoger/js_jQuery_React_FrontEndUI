@@ -1,142 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
-        integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
-        crossorigin="anonymous"></script>
+      <title>My First jQuery Web Page</title>
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+      integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
+      crossorigin="anonymous"></script>
         
-        <script src = "jquery_functions.js"></script>
+      <script src="Jquery_functions.js"></script>
 
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="fade_In_Out_Toggle.css">
-        <style>
-          body {
-            background-image: url('../images/backgroundImg.jfif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-          }
-        </style>
+      <link rel="stylesheet" href="Style.css">
+      <link rel="stylesheet" href="Fade_In_Out_Toggle.css">
+      <style>
+        body {
+          background-image: url('images/backgroundImg.jfif');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+      </style>
     </head>
     <body>
+      <a class="skip-link" href="#main-content">Skip to main content</a>
+      <header role="banner">
+          <h1 id="heading1">My First jQuery Web Page</h1>
+          <!-- <h2 id="heading2" style="color: rgba(19, 124, 150, 0.733);">This text moves with mouse movement</h2> -->
+          <h2 id="heading2"><i>This text moves with mouse movement</i></h2>
+      </header>
 
-      <h1 id="heading1">My First jQuery Web Page</h1>
-      <h2 id="heading2" style="color: rgba(19, 124, 150, 0.733);">This text moves with mouse movement</h2>
-    
-      <div id="info">
-        <p id="text">Name: <input type="text" id ="name" value="John Smith"></p>
-        <button id="getVal">Get Name</button>
-        <button id="resetVal">Reset Value</button>
-        <button id="resetText">Reset Text</button>
-        <button id="resetHtml">Reset Html</button>
-      </div>  
-      <br><br>
-      <div style="text-align: center;">
-        <button id="hidden">Hide</button>
-        <button id="visible">Show</button>
-        <p class="line2">This text will hide or show</p> 
-      </div>
+      <nav aria-label="nav-label-1">This page demonstrates jQuery functionalities including toggle, panel sliding, and fade effects.</nav>
+      <main id="main-content" tabindex="-1" role="main">
+        <div id="info">
+          <p id="text"><label for="name">Name:</label> <input type="text" id ="name" value="Your Name"></p>
+          <button id="getVal">Get Name</button>
+          <button id="resetVal">Reset Value</button>
+          <button id="resetText">Reset Text</button>
+          <button id="resetHtml">Reset Html</button>
+        </div> 
 
-      <br><br>
-      <div style="text-align: center;">
-        <p class="line3">This button will toggle</p>  
-        <button id="btn">Toggle</button>
-      </div>
-    
-      <br><br>
-      <div id= "viewPanelMove">
-        <div style="display:flex;">
-          <div id="topbar1">Click to view Panel</div>
-          <div id="topbar2">Click to close Panel</div>
-          <div id="topbar3">Slide up or down Panel</div>
-          <div id="topbar4">Click to toggle Panel</div>
-      </div>
-      <div id="panel"><span>This is a Panel with sample content</span></div>
-      </div>
-      <br><br>
-      <!-- Rolling Square button inactive until start -->
-      <h2 id="roll">Rolling square animation</h2>
-      <button class="stop" style="margin-left: 10px;" disabled>Stop the square rolling!</button>
-      <div style="display:block;">
-        <div id="square1"><div id="clk1">View Smaller</div></div>
-        <div id="square2"><div id="clk2">View bigger</div></div>
-        <div id="square3"><div id="clk3">Width changes</div></div>
-        <div id="square4"><div id="clk4">Long Width</div></div>
-      </div>
-      <br>
-      <button id="b1">Fade Effect_FadeIn</button>
-      <button id="b2">Fade Effect_FadeOut</button>
-      <button id ="b3">Fade Effect_FadeToggle</button>
-      <button id ="b4">Fade Effect_FadeTo</button>
-      <div id="fade">
-        <div id="one" class="box1"><br>
-          <div id="two" class="box2"><br>
-            <div id="three" class="box3"><br>
-              <div id="four" class="box4"></div>
+        <br><br>
+        <hr class="section-sep" aria-hidden="true">
+        <div class="text-center">
+          <button id="hidden">Hide</button>
+          <button id="visible">Show</button>
+          <p class="line2">This text will hide or show</p> 
+        </div>
+
+        <br><br>
+        <div class="text-center">
+          <p class="line3">This button will toggle</p>  
+          <button id="btn">Toggle</button>
+        </div>
+      
+        <br><br>
+        <h2 id="viewPanelMove">Panel</h2>
+        <hr class="section-sep" aria-hidden="true">
+        <div id="viewPanelContainer">
+          <div class="flex-gap-8">
+            <button type="button" id="topbar1">Click to view Panel</button>
+            <button type="button" id="topbar2">Click to close Panel</button>
+            <button type="button" id="topbar3">Slide up or down Panel</button>
+            <button type="button" id="topbar4">Click to toggle Panel</button>
+        </div>
+        <div id="panel"><span>This is a Panel with sample content</span></div>
+        </div>
+        <br><br>
+        
+        <!-- Rolling Square button inactive until start -->
+        <h2 id="roll">Rolling square animation</h2>
+        <hr class="section-sep" aria-hidden="true">
+        <button class="stop" type="button" disabled>Stop the square rolling!</button>
+        <div id="squares" class="display-block">
+          <button type="button" id="square1" class="square"><span id="clk1">View Smaller</span></button><br>
+          <button type="button" id="square2" class="square"><span id="clk2">View bigger</span></button><br>
+          <button type="button" id="square3" class="square"><span id="clk3">Width changes</span></button><br>
+          <button type="button" id="square4" class="square"><span id="clk4">Long Width</span></button><br>
+        </div>
+        <br>
+        <button id="b1">Fade Effect_FadeIn</button>
+        <button id="b2">Fade Effect_FadeOut</button>
+        <button id ="b3">Fade Effect_FadeToggle</button>
+        <button id ="b4">Fade Effect_FadeTo</button>
+        <br><br>
+        <div id="fade">
+          <div id="one" class="box1"><br>
+            <div id="two" class="box2"><br>
+              <div id="three" class="box3"><br>
+                <div id="four" class="box4"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <br><br>
-      <div id="drag">Click to Drag</div>
-      <br>
-      <h4 style="color: green;">Pizza Tips</h4>
-      <div id="accordion" class="tips">
-        <div>Pizza Main Ingredient</div>
-        <div>Flour</div>
-        <div>Temperature for baking</div>
-        <div>475 degree-F</div>
-        <div>Time to cook</div>
-        <div>15Min</div>
-      </div>
+        <br><br>
+        <div id="drag">Click to Drag</div>
+        <br>
+       
+        <div id="accordion" class="tips" role="tablist">
+          <h3>Pizza Main Ingredient</h3>
+          <div role="tab" tabindex="0" aria-selected="true">Flour</div>
+          <h3>Temperature for baking</h3>
+          <div role="tab" tabindex="0" aria-selected="false">475&deg;F</div>
+          <h3>Time to cook</h3>
+          <div role="tab" tabindex="0" aria-selected="false">15Min</div>
+        </div>
 
+        <nav aria-label="nav-label-2" class="table-of-contents">
+          <h2>On this page:</h2>
+          <ul>
+            <li><a href="#heading1">Scroll to top</a></li>
+            <li><a href="#roll">Rolling square animation</a></li>
+            <li><a href="#viewPanelMove">Panel</a></li>
+          </ul>
+        </nav>
+      </main>
 
-      <nav role="navigation" class="table-of-contents">
-        <h2>On this page:</h2>
-        <ul>
-          <li><a href="#heading1">Scroll to top</a></li>
-          <li><a href="#roll">Rolling square animation</a></li>
-          <li><a href="#viewPanelMove">Panel</a></li>
-        </ul>
-      </nav>
-    
-
-     <div class="pagination">
-        <a href=""><</a>
-        <a href="#page1" class="active">1</a>
-        <a href="page2.html">2</a>
-        <a href="page3.html">3</a> 
-        <a href="page4.html">4</a>    
-        <a href="page2.html">></a>
-      </div>
-
-
-      <div class="confetti-wrapper"></div>
+      <footer role="contentinfo">
+        <div class="pagination">
+          <a href="">&lt;</a>
+          <a href="#page1" class="active">1</a>
+          <a href="page2.html">2</a>
+          <a href="page3.html">3</a> 
+          <a href="page4.html">4</a>    
+          <a href="page2.html">></a>
+        </div>
+        <p>Copyright &copy; 2025 jQuery Web Page</p>
+      </footer>
 
       <script>     
       
-        // This text moves with mouse movement
+        // Text with mouse movement for #heading2
         $(document).ready(function () {
-          const text = $('#heading2').text(); 
+          //const text = $('#heading2').text(); 
+          const text = "This text moves with mouse movement";
           let letters = text.split("").join("   ");
 
           let index = 0; 
 
           $(document).on("mousemove", function(e) {
               // Create a new letter span
-              const $letter = $("<span>")
+                const $letter = $("<span>")
                   .addClass("letter")
+                  .attr({"aria-hidden": "true", role: "presentation"})
                   .text(letters[index])
                   .css({
-                      left: e.pageX + "px",   //Track mouse position
+                      left: e.pageX + "px",               //Track mouse position
                       top: e.pageY + "px",
                       color: `hsl(${Math.random() * 360}, 100%, 70%)`
                   });
 
-              $("body").append($letter);
+              $("#main-content").append($letter);
 
               // Cycle through letters
               index = (index + 1) % letters.length;
@@ -154,7 +168,7 @@
           });
         }); 
         
-        // wave animation for heading1
+        // Wave animation for #heading1
         $(document).ready(function(){
           let text = $("#heading1").text();
           $("#heading1").empty();

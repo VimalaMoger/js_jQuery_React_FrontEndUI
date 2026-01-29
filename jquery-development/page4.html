@@ -1,218 +1,233 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <title>Data Table with Pagination</title>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
         integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
         crossorigin="anonymous"></script>
         
-        <script src = "jquery_functions.js"></script>
         <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="fade_In_Out_Toggle.css">
+        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="Fade_In_Out_Toggle.css">
         
         <link rel="stylesheet" href="https://cdn.datatables.net/2.3.6/css/dataTables.dataTables.css" />
         
         <script src="https://cdn.datatables.net/2.3.6/js/dataTables.js"></script>
         
-        <style>
-          body {
-            background-image: url('../images/backgroundImg.jfif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-          }
-        </style>
+                <style>
+                    body {
+                        background-image: url('images/backgroundImg.jfif');
+                        background-repeat: no-repeat;
+                        background-attachment: fixed;
+                        background-size: 100% 100%;
+                    }
+                </style>
     </head>
     <body>
-        <div class="container">
-            <table id="tableData" class="display">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>first name</th>
-                        <th>surname</th>
-                        <th>number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Frank</td>
-                        <td>Shoulder</td>
-                        <td>1246</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>John</td>
-                        <td>Jameson</td>
-                        <td>4564</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Philip</td>
-                        <td>Jenkins</td>
-                        <td>4456</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Maria</td>
-                        <td>Carlston</td>
-                        <td>4456</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Julia</td>
-                        <td>Tampelton</td>
-                        <td>1246</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Jane</td>
-                        <td>Conor</td>
-                        <td>4456</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Susan</td>
-                        <td>Crane</td>
-                        <td>1246</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Lucas</td>
-                        <td>Fenric</td>
-                        <td>4456</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Mark</td>
-                        <td>Fenric</td>
-                        <td>4456</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Hilde</td>
-                        <td>Mayer</td>
-                        <td>4456</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>John</td>
-                        <td>Tron</td>
-                        <td>1246</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>Hans</td>
-                        <td>Stark</td>
-                        <td>4564</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>Brat</td>
-                        <td>Steve</td>
-                        <td>1655</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>Shohan</td>
-                        <td>Robert</td>
-                        <td>1256</td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>August</td>
-                        <td>Justin</td>
-                        <td>1822</td>
-                    </tr>
-                    <tr>
-                        <td>16</td>
-                        <td>Augustin</td>
-                        <td>Mike</td>
-                        <td>1431</td>
-                    </tr>
-                    <tr>
-                        <td>17</td>
-                        <td>Franvr</td>
-                        <td>June</td>
-                        <td>1622</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>  
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <header role="banner">
+            <h1>Data Table with Pagination</h1>
+        </header>
+        <nav role="navigation">
+            <p>This page demonstrates state save functionality using jQuery DataTables plugin, links to load games in iframe</p> 
+        </nav>    
+        <main role="main-content">
+            <div class="container">
+                <table id="tableData" class="display">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>first name</th>
+                            <th>surname</th>
+                            <th>number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Frank</td>
+                            <td>Shoulder</td>
+                            <td>1246</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>John</td>
+                            <td>Jameson</td>
+                            <td>4564</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Philip</td>
+                            <td>Jenkins</td>
+                            <td>4456</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Maria</td>
+                            <td>Carlston</td>
+                            <td>4456</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Julia</td>
+                            <td>Tampelton</td>
+                            <td>1246</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Jane</td>
+                            <td>Conor</td>
+                            <td>4456</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Susan</td>
+                            <td>Crane</td>
+                            <td>1246</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Lucas</td>
+                            <td>Fenric</td>
+                            <td>4456</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Mark</td>
+                            <td>Fenric</td>
+                            <td>4456</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Hilde</td>
+                            <td>Mayer</td>
+                            <td>4456</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>John</td>
+                            <td>Tron</td>
+                            <td>1246</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Hans</td>
+                            <td>Stark</td>
+                            <td>4564</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Brat</td>
+                            <td>Steve</td>
+                            <td>1655</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Shohan</td>
+                            <td>Robert</td>
+                            <td>1256</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>August</td>
+                            <td>Justin</td>
+                            <td>1822</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>Augustin</td>
+                            <td>Mike</td>
+                            <td>1431</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>Franvr</td>
+                            <td>June</td>
+                            <td>1622</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+       
+            <br><br>
+            
+            <!-- Links to load games in iframe -->
+            
+            <div class="flex-gap-100">
+                <div>
+                    <a href="https://teal-bienenstitch-6e2de9.netlify.app/" target="gameFrame1">Click here to play - A Basic Calculator</a>
+                    <br><br>
+                    <!-- Iframe to display the game inside the same page -->
+                    <iframe name="gameFrame1" class="left" src="" title="Game Area"></iframe>
+                </div>
+                <div>
+                    <a href="https://iridescent-quokka-786002.netlify.app/" target="gameFrame2">Click here to play - Connect-4 Clone</a>
+                    
+                    <br><br>
+                    <!-- Iframe to display the game inside the same page -->
+                    <iframe name="gameFrame2" class ="right" src="" title="Game Area"></iframe>     
+                </div>
+            </div>
+            <br><br>
+
+            <div class="confetti-wrapper"></div>
+        </main>
+
+        <footer role="contentinfo">
+            <div class="pagination">
+                <a href="page3.html">&lt;</a>
+                <a href="index.html">1</a>
+                <a href="page2.html">2</a>
+                <a href="page3.html">3</a>     
+                <a href="page4.html" class="active">4</a>
+                <a href="">&gt;</a>
+            </div>
+            <map name="location" >
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220475.61908490144!2d-97.89812076670185!3d30.29601027596263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1745603973358!5m2!1sen!2sus" width="200" height="200" class="no-border" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </map>
+            <p>© 2025 My Webpage</p>
+        </footer>
+
         <script>
+            // Initialize DataTable with stateSave option
             $('#tableData').DataTable({
-                    "processing": true,
-                    "pageLength" : 5,
-                    "lengthMenu": [5, 10, 15, 20],
-                    "stateSave": true // remembers pagination & length after reload
-            });       
-        </script>
-        <br><br>
+                        "processing": true,
+                        "pageLength" : 5,
+                        "lengthMenu": [5, 10, 15, 20],
+                        "stateSave": true               // remembers pagination & length after reload
+            });     
         
-        <div style="display: flex;gap:100px;">
-            <div>
-                <a href="https://teal-bienenstitch-6e2de9.netlify.app/" target="gameFrame1">Click here to play - A Basic Calculator</a>
-                <br><br>
-                <!-- Iframe to display the game inside the same page -->
-                <iframe name="gameFrame1" class="left" src="" title="Game Area"></iframe>
-            </div>
-            <div>
-                <a href="https://iridescent-quokka-786002.netlify.app/" target="gameFrame2">Click here to play - Connect-4 Clone</a>
-                
-                <br><br>
-                <!-- Iframe to display the game inside the same page -->
-                <iframe name="gameFrame2" class ="right" src="" title="Game Area"></iframe>     
-            </div>
-        </div>
-        <br><br>
+        
+        
+            // Generate confetti pieces dynamically
+            // Create a new div element with a class
+            // Append the new div to the current wrapper  
+            $(document).ready(function () {
+                $('.confetti-wrapper').each(function (index, wrapper) {
+                    
+                    for (let i = 0; i < 50; i++) {
+                        let newDiv = $("<div></div>")
+                            .addClass("confetti-piece")                            
+                            .css({
+                                "left": `${Math.random() * 100}%`,
+                                "--fall-duration": `${Math.random() * 3 + 3}s`,
+                                "--confetti-color": getRandomColor()
+                            });
+                        $(wrapper).append(newDiv);
+                    } 
+                });
 
-        <div class="pagination">
-            <a href="page3.html"><</a>
-            <a href="index.html">1</a>
-            <a href="page2.html">2</a>
-            <a href="page3.html">3</a>     
-            <a href="page4.html" class="active">4</a>
-            <a href="">></a>
-        </div>
-        <div class="confetti-wrapper"></div>
-
-      <script>     
-      // Generate confetti pieces dynamically  
-        $(document).ready(function () {
-            $('.confetti-wrapper').each(function (index, wrapper) {
-                
-                for (let i = 0; i < 50; i++) {
-                    // Create a new div element with text and a class
-                    let newDiv = $("<div></div>")
-                        .addClass("confetti-piece")
-                        //.text("This is a dynamically created div!")
-                        .css({
-                            "left": `${Math.random() * 100}%`,
-                            "--fall-duration": `${Math.random() * 3 + 3}s`,
-                            "--confetti-color": getRandomColor()
-                        });
-
-                    // Append the new div to the current wrapper
-                    $(wrapper).append(newDiv);
-
-                } 
+                // Function to get a random color
+                function getRandomColor() {
+                    const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
+                    return colors[Math.floor(Math.random() * colors.length)];
+                }
             });
-
-            // Function to get a random color
-            function getRandomColor() {
-                const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
-                return colors[Math.floor(Math.random() * colors.length)];
-            }
-        });
-      </script>
+        </script>
     </body>
 </html>
 
-<br><br>
-<map name="location" >
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220475.61908490144!2d-97.89812076670185!3d30.29601027596263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1745603973358!5m2!1sen!2sus" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</map>
+
 
