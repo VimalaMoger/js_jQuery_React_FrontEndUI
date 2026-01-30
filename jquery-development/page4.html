@@ -152,6 +152,15 @@
             </div>  
        
             <br><br>
+            <script>
+                // Initialize DataTable with stateSave option
+                $('#tableData').DataTable({
+                            "processing": true,
+                            "pageLength" : 5,
+                            "lengthMenu": [5, 10, 15, 20],
+                            "stateSave": true               // remembers pagination & length after reload
+                }); 
+            </script>
             
             <!-- Links to load games in iframe -->
             
@@ -190,17 +199,7 @@
             <p>© 2025 My Webpage</p>
         </footer>
 
-        <script>
-            // Initialize DataTable with stateSave option
-            $('#tableData').DataTable({
-                        "processing": true,
-                        "pageLength" : 5,
-                        "lengthMenu": [5, 10, 15, 20],
-                        "stateSave": true               // remembers pagination & length after reload
-            });     
-        
-        
-        
+        <script>          
             // Generate confetti pieces dynamically
             // Create a new div element with a class
             // Append the new div to the current wrapper  
@@ -214,6 +213,7 @@
                                 "left": `${Math.random() * 100}%`,
                                 "--fall-duration": `${Math.random() * 3 + 3}s`,
                                 "--confetti-color": getRandomColor()
+                                //`hsl(${Math.random() * 360}, 100%, 75%)`
                             });
                         $(wrapper).append(newDiv);
                     } 

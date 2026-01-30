@@ -9,8 +9,11 @@ $(document).ready(function(){
     });
     
     $("p.line2").html("This line will show or hide after the click");
+
     $("ul li:first").css("background-color", "yellow");
+
     //$("[href]").html("Welcome to Google page");
+
     $("tr:odd").css("color", "grey");
     //$("a[target =='_blank']").css("color", "green");
     
@@ -23,16 +26,17 @@ $(document).ready(function(){
     
     //Adding multiple events in jQuery
     $("#milk").on({
-         mouseenter: function(){
-             $(this).css("background-color", "yellow");
-         },
-         mouseleave: function(){
-             $(this).css("background-color", "pink");
-         },
-         click: function(){
-             $(this).css("background-color", "cyan");
-         }
+        mouseenter: function(){
+            $(this).css("background-color", "yellow");
+        },
+        mouseleave: function(){
+            $(this).css("background-color", "pink");
+        },
+        click: function(){
+            $(this).css("background-color", "cyan");
+        }
     });
+
     $("#milk").click(function(){
         alert("You have clicked on Milk products, color changed to pink");            
     });
@@ -127,8 +131,9 @@ $(document).ready(function(){
         alert($("#milklist").html());
     });
 
-     $('#name').val('');
-    //Get content value
+    // clear input field
+    $('#name').val('');
+    //Get content value, capitalize first letter
     $("#getVal").click(function(){
         let text = $("#name").val();
         if(text == ""){
@@ -136,7 +141,8 @@ $(document).ready(function(){
             $('#name').focus();
             return;
         }
-        alert("Hey, this is " + $("#name").val());
+	    let capitalized = text.charAt(0).toUpperCase() + text.slice(1);
+        alert("Hi there, " + capitalized);
     });
 
     //Get attribute value
@@ -154,7 +160,7 @@ $(document).ready(function(){
     });
 
     $("#resetVal").click(function(){
-        $("#name").val("Bob Smith");
+        $("#name").val("Frank Enstein");
     });
     
     //jQuery set Attributes
@@ -173,11 +179,11 @@ $(document).ready(function(){
 
     //insert text before or after
     $("#before").click(function(){
-        $("img").before("<b>It's an Art</b>");
+        $("#thumbnail").before("<b>It's an Art</b>");
     });
 
     $("#after").click(function(){
-        $("img").after("<b>It's an Art</b>");
+        $("#thumbnail").after("<b>It's an Art</b>");
     });
 
     //remove audio
@@ -302,10 +308,10 @@ $(document).ready(function(){
     // Stop button to stop the rolling square animation
     $(".stop").click(function(){
         $("#square1, #square2, #square3, #square4").stop();
-            alert("The square stopped rolling!")
+        alert("The square stopped rolling!")
     });
 
-    // Mouse coordinates: guard element and use single listener
+    // Mouse coordinates: display X and Y coordinates on mouse move
     (function(){
         const coordinatesElem = document.getElementById('coordinates');
         if (!coordinatesElem) return;
@@ -316,7 +322,7 @@ $(document).ready(function(){
         });
     })();
 
-    // Get the audio element and set volume safely
+    // Get the audio element and set volume to 10%
     (function(){
         const audioElement = document.getElementById("myAudio");
         if (audioElement) {
@@ -343,77 +349,16 @@ $(document).ready(function(){
         // Mouse enters
             $(this).css({
                 "background-color": "orange",
-                    "color": "white"
+                "color": "white"
             }).text("Mouse is here!");
             },
-            function() {
-            // Mouse leaves
-                $(this).css({
-                    "background-color": "lightblue",
-                    "color": "black"
-                }).text("Hover over me");
-                }
+        function() {
+        // Mouse leaves
+            $(this).css({
+                "background-color": "lightblue",
+                "color": "black"
+            }).text("Hover over me");
+        }
         );
     });
-
-    //Login submit
-
-    $(document).ready(function() {
-        // Show popup
-        $("#loginBtn").click(function() {
-            $("#overlay, #popup").fadeIn(200);
-        });
-
-        // Close popup
-        $("#closePopup, #overlay").click(function() {
-            $("#overlay, #popup").fadeOut(200);
-            $("#errorMsg").text(""); // Clear error
-        });
-
-        // Handle login submit
-        $("#submitLogin").click(function() {
-            let username = $("#username").val().trim();
-            let password = $("#password").val().trim();
-
-            if (username === "" || password === "") {
-                $("#errorMsg").text("Please enter both username and password.");
-                    return;
-            }
-
-            // Simulate authentication
-            if (username === "admin" && password === "1234") {
-                alert("Login successful!");
-                $("#overlay, #popup").fadeOut(200);
-            } else {
-                $("#errorMsg").text("Invalid username or password.");
-            }
-        });        
-    });
-
-    // Fallback: force-download image when clicking the download anchor
-    $(document).on('click', '#ref', function(e){
-        // Try programmatic fetch+download; if it fails, fall back to navigating to the image
-        e.preventDefault();
-        const href = $(this).attr('href');
-        const filename = $(this).attr('download') || 'download';
-        // Attempt to fetch the resource as a blob and trigger a download
-        fetch(href).then(function(response){
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.blob();
-        }).then(function(blob){
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
-        }).catch(function(){
-            // If fetch fails (e.g., file:// restrictions), fall back to normal navigation
-            window.location.href = href;
-        });
-    });
-
 });

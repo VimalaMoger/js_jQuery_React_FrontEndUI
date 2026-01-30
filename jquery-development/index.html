@@ -177,8 +177,19 @@
           $.each(text.split(""), function(i, char){
               let delay = i * 0.1; // delay between letters
               $("#heading1").append(
-                  $("<span>").text(char).css("animation-delay", delay + "s")
+                // add color change for each letter
+                
+                $("<span>").text(char).css({
+                  "animation-delay": delay + "s",
+                  "color": getRandomColor()
+                  //`hsl(${Math.random() * 360}, 100%, 75%)`
+                })
               );
+              // Function to get a random color
+                function getRandomColor() {
+                    const colors = ['#ff6347', '#ffa500', '#32cd32', '#1e90ff', '#ff69b4'];
+                    return colors[Math.floor(Math.random() * colors.length)];
+                }
           });
         });
       

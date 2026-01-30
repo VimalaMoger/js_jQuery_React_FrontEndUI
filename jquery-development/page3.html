@@ -70,10 +70,10 @@
                 <div>
                     <h2 class="green-text">Double click to copy text</h2>
                     <label for="field1">Source text:</label>
-                    <input type="text" placeholder="Type here"><br>
+                    <input id="field1" type="text" placeholder="Type here" class="width-25"><br>
 
                     <label for="field2">Destination text:</label>
-                    <input type="text" placeholder="paste here" readonly><br>
+                    <input id="field2" type="text" placeholder="paste here" readonly class="width-25"><br>
                     
                     <input type="button" id="copyText" value="Copy text"><br>
                 </div>           
@@ -161,30 +161,14 @@
                 });
 
                 // Handle login submit
-                $("#submitLogin").click(function() {
-                    let username = $("#username").val().trim();
-                    let password = $("#password").val().trim();
-
-                    if (username === "" || password === "") {
-                        $("#errorMsg").text("Please enter both username and password.");
-                        return;
-                    }
-
-                    // Simulate authentication (replace with AJAX call in real app)
-                    if (username === "admin" && password === "1234") {
-                        alert("Login successful!");
-                        $("#overlay, #popup").fadeOut(200);
-                    } else {
-                        $("#errorMsg").text("Invalid username or password.");
-                    }
-                });
+                // Login submit is handled centrally in Jquery_functions.js
             });
 
             // copy text on double click
 
             $("#copyText").on("dblclick", function() {                
                 
-                let copiedText= $("#field1").val().trim();
+                let copiedText= $(".width-25").val().trim();
                 if(copiedText === "") {
                     
                     alert("Please enter text to copy.");
@@ -222,6 +206,42 @@
                         });
                     }                    
                 });
+            });
+                
+            //Login submit
+            $(document).ready(function() {
+                // Show popup
+                $("#loginBtn").click(function() {
+                    $("#username").val(""); // Clear previous input
+                    $("#password").val(""); // Clear previous input
+                    $("#errorMsg").text(""); // Clear previous error
+                    $("#overlay, #popup").fadeIn(200);
+                });
+
+                // Close popup
+                $("#closePopup, #overlay").click(function() {
+                    $("#overlay, #popup").fadeOut(200);
+                    $("#errorMsg").text(""); // Clear error
+                });
+
+                // Handle login submit
+                $("#submitLogin").click(function() {
+                    let username = $("#username").val().trim();
+                    let password = $("#password").val().trim();
+
+                    if (username === "" || password === "") {
+                        $("#errorMsg").text("Please enter both username and password.");
+                        return;
+                    }
+
+                    // Simulate authentication
+                    if (username === "admin" && password === "1234") {
+                        alert("Login successful!");
+                        $("#overlay, #popup").fadeOut(200);
+                    } else {
+                        $("#errorMsg").text("Invalid username or password.");
+                    }
+                });        
             });
         </script>
     </body>
