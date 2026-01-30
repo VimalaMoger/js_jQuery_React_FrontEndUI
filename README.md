@@ -134,7 +134,9 @@
 ### Screenshots and appView links:
 
 ## jQuery Development
+
 [View](https://extraordinary-mousse-8546e0.netlify.app/)
+
 <br>
 <br>
 <br>
