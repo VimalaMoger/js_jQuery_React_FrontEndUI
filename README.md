@@ -134,7 +134,7 @@
 ### Screenshots and appView links:
 
 ## jQuery Development
-[View](https://lovely-maamoul-7ce7a5.netlify.app//)
+[View](https://lovely-maamoul-7ce7a5.netlify.app/)
 <br>
 <br>
 <br>
