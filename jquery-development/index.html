@@ -97,15 +97,21 @@
         <div id="drag">Click to Drag</div>
         <br>
        
-        <div id="accordion" class="tips" role="tablist">
-          <h3>Pizza Main Ingredient</h3>
-          <div role="tab" tabindex="0" aria-selected="true">Flour</div>
-          <h3>Temperature for baking</h3>
-          <div role="tab" tabindex="0" aria-selected="false">475&deg;F</div>
-          <h3>Time to cook</h3>
-          <div role="tab" tabindex="0" aria-selected="false">15Min</div>
+        <!-- Drop down list (ARIA tabs) -->
+        <div class="tab-interface">
+          <!-- Tablist should contain only the tabs -->
+          <div id="accordion" class="tips" role="tablist" aria-label="Pizza Baking Tips">
+            <span role="tab" aria-controls="panel-1" id="tab-1" tabindex="0">Pizza Main Ingredient</span>
+            <span role="tab" aria-controls="panel-2" id="tab-2" tabindex="-1">Temperature for baking</span>
+            <span role="tab" aria-controls="panel-3" id="tab-3" tabindex="-1">Time to cook</span>
+          </div>
+          <!-- Panels must be siblings of the tablist, not children -->
+          <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">Flour</div>
+          <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="display-none">475&deg;F</div>
+          <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" class="display-none">15Min</div>
         </div>
-
+        <br>
+        <!-- page links -->
         <nav aria-label="nav-label-2" class="table-of-contents">
           <h2>On this page:</h2>
           <ul>
