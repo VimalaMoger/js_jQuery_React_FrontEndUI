@@ -117,11 +117,6 @@ $(document).ready(function(){
         });
     });
 
-    //Accordion menu (guarded)
-    if (typeof $ !== 'undefined' && $("#accordion").length && $.fn.accordion) {
-        $("#accordion").accordion();
-    }
-
     //jQuery get content
     $("#button1").click(function(){
         alert($("#milklist").text());
