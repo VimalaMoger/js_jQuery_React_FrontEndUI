@@ -1,3 +1,8 @@
+import React, { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
+import { TiShoppingCart } from "react-icons/ti";
+import { SlHome } from "react-icons/sl";
+import Search from "./search";
 import CartCounter from "./CartCounter";
 import CartTotalAmount from "./CartTotal";
 

@@ -1,3 +1,9 @@
+const StorageSetCart = (cartItems) =>{
+    sessionStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems : []));
+} 
+const StorageSetCount = (cartCount) => {
+    sessionStorage.setItem('count', JSON.stringify(cartCount > 0 ? cartCount : 0));
+}
 const StorageSetTotal = (cartTotal) => {
     sessionStorage.setItem('total', JSON.stringify(cartTotal > 0 ? cartTotal : 0));
 }
