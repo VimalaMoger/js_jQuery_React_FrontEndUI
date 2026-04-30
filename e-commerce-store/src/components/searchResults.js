@@ -3,36 +3,38 @@ import { useSearchParams } from "react-router-dom";
 import * as data from '../db/db.json';
 import CategoryProduct from "./categoryProduct";
 
+
 const SearchResults = () => {
   
   const [searchTerm, setSearchTerm] = useState("");
 
-  let [searchParams ] = useSearchParams();
+  let [searchParams] = useSearchParams();
   let query = searchParams.get('s');
   
- useEffect(() => {
-    setSearchTerm(query);
-  }, [query]);
+  useEffect(() => {
+      setSearchTerm(query);
+    }, [query]);
 
-  const {products, categories} = data;
+  const {products} = data;
 
-  const filteredItems = products.filter((item) =>
-    item.title.toLowerCase().includes(searchTerm.toLowerCase()) 
+  const filteredItems = products.filter(
+    (product) => 
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) //||
+      // product.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
   const renderProducts = () => {
   
     if (filteredItems.length > 0) {
-      return filteredItems.map((p) => (
-             
+      return filteredItems.map(p => (             
         <CategoryProduct key={p.id} {...p}>
-                    {p.title}
-                </CategoryProduct>
-            ));
-        }else{
-            return <div>No results found</div>
-        }
-  };
+          {p.title}
+        </CategoryProduct>
+      ));
+    } else {
+      return <div>No results found</div>
+    }
+  }; 
 
   return (
     <div>

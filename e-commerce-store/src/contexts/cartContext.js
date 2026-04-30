@@ -5,9 +5,10 @@ import { CartReducer } from "./cartReducer";
 export const CartContext = createContext();
 
 //SessionStorage to store within browser
-const Storage  = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : [];
-const initialState = { cartItems: Storage }
-
+const StorageGetCart  = sessionStorage.getItem('cart') ? JSON.parse(sessionStorage.getItem('cart')) : [];
+const StorageGetCount  = sessionStorage.getItem('count') ? JSON.parse(sessionStorage.getItem('count')) : 0;
+const StorageGetTotal  = sessionStorage.getItem('total') ? JSON.parse(sessionStorage.getItem('total')) : 0;
+const initialState = { cartItems: StorageGetCart, cartCount: StorageGetCount, cartTotal: StorageGetTotal };
 
 const CartContextProvider = ({children}) => {
     //debugger;
@@ -42,8 +43,16 @@ const CartContextProvider = ({children}) => {
         return state.cartItems;
     }
 
+    const getCartCount =() => {
+        return state.cartCount;
+    }
+
+    const getCartTotal =() => {
+        return state.cartTotal;
+    }
+
     const contextValues = {      //expose these methods to Provider
-        addProduct, removeProduct, increaseQty, decreaseQty, clearBasket, getCartItems,
+        addProduct, removeProduct, increaseQty, decreaseQty, clearBasket, getCartItems, getCartCount, getCartTotal, 
         ...state
     }
 

@@ -1,22 +1,26 @@
-import React, {useContext} from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../fetcher";
 import styled from "styled-components";
 import { CartContext } from "../contexts/cartContext";
+import StockLevelUpdateComponent from "./StockLevel";
+
 
 const ProductDetail = () => {
 
     const cartContext = useContext(CartContext);
     const { addProduct } = cartContext;
-
     const [product,  setProduct] = React.useState({errorMessage: '', data: {} });
     const params = useParams();
-
     const id = product.data.id;
     const title = product.data.title;
     const price = product.data.price;
     const description = product.data.description;
-    //const {productId} = useParams();
+    const stock = product.data.stock;
+    //const {productId} = useParams();    
+    const [stockUpdate, setStockUpdate] = useState(stock);       
+    const isOutOfStock = stockUpdate === 0;
+    const backOrder = stock === 0;
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -73,17 +77,19 @@ const ProductDetail = () => {
 
                 <ProductInfoStock>
                     <ProductInfoStockLabel>
-                        Stock Level: {product.data.stock}
+                        Stock Level: 
+                        <StockLevelUpdateComponent id={id} stock={stock} sUpdate={stockUpdate} setSUpdate={setStockUpdate} />                      
                     </ProductInfoStockLabel>
                     <ProductInfoStockLabel>FREE Delivery</ProductInfoStockLabel>
                 </ProductInfoStock>
 
                 <ProductInfoAction>
-                    <ProductInfoActionButton className= "bcolor" onClick={() => 
-                        addProduct({id, title, price})}>Add to Basket</ProductInfoActionButton>
+                    <ProductInfoActionButton disabled={isOutOfStock || backOrder} className= "bcolor" onClick={() => 
+                        addProduct({id, title, price, stock})}>{isOutOfStock || backOrder ? "Out of Stock" : "Add to Basket"}
+                    </ProductInfoActionButton>
                 </ProductInfoAction>
             </aside>
-             <br /> 
+            <br /> 
                      
             <ProductInfoDescription>
                 <h3>Description: </h3> 
@@ -165,12 +171,20 @@ const ProductInfoAction = styled.div`
 `;
 
 const ProductInfoActionButton = styled.button`
-  border: 2px solid rgb(17, 58, 48);
-  border-radius: 15%;
-  margin-right: 20px;
-  margin-top: 30px;
-  width: 80px; 
-  background-color:rgb(156, 138, 138);
+    border: 2px solid rgb(17, 58, 48);
+    border-radius: 15%;
+    margin-right: 20px;
+    margin-top: 30px;
+    width: 80px; 
+    background-color:rgb(156, 138, 138);
+    
+    &:hover {
+        background-color: blue;
+    }
+
+    &:focus {
+        outline:2px solid white;
+    }
 `; 
 
 const ProductInfoFinancePrice = styled.div`

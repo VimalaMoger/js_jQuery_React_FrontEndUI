@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Checkout = () => {
+    
     const[form, setForm] = useState({
         name: '', 
         email: '', 
@@ -171,10 +172,26 @@ const CheckoutButton = styled.button`
     border-radius: 8px;
     height: 40px;
     grid-column:3;
+    
+    &:hover {
+        background-color: blue;
+    }
+
+    &:focus {
+        outline:2px solid white;
+    }
 `;
 
 const CancelButton = styled.button`
     border-radius: 8px;
     height: 40px;
     grid-column: 1;
+    
+    &:hover {
+        background-color: blue;
+    }
+
+    &:focus {
+        outline:2px solid white;
+    }
 `;

@@ -1,66 +1,75 @@
-import React, {useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/cartContext";
 import styled from "styled-components";
+import StockLevelUpdateComponent from "./StockLevel";
 
-const CategoryProduct = ({id, title, image, specs, features, price, stock}) => {
-  
+
+const CategoryProduct = ({ id, title, image, specs, features, price, stock }) => {
+
     const navigate = useNavigate();
     const cartContext = useContext(CartContext);
     const { addProduct } = cartContext;   //deconstruct CartContext to get addProduct
+    const [stockUpdate, setStockUpdate] = useState(stock);
+    const isOutOfStock = stockUpdate === 0;
 
-    return(
+    return (
+
        <ProductInfoArticle>
-                   <ProductTitle>
-                       <Link to={`/products/${id}`}>{title}</Link>
-                   </ProductTitle>
+            <ProductTitle>
+                <Link to={`/products/${id}`}>{title}</Link>
+            </ProductTitle>
        
-                   <figure>
-                       <ProductImageContainer>
-                           <ProductImage src={`/assets/${image}`} alt={title} />
-                       </ProductImageContainer>
-                   </figure>
+            <figure>
+                <ProductImageContainer>
+                    <ProductImage src={`/assets/${image}`} alt={title} />
+                </ProductImageContainer>
+            </figure>
        
-                   <aside>
-                       <ProductInfo>
-                           <ProductInfoHeader>Dimensions</ProductInfoHeader>
-                           <label>{specs.dimensions}</label>
-                       </ProductInfo>
+            <aside>
+                <ProductInfo>
+                    <ProductInfoHeader>Dimensions</ProductInfoHeader>
+                    <label>{specs.dimensions}</label>
+                </ProductInfo>
        
-                       {specs.capacity && (
-                           <ProductInfo>
-                               <ProductInfoHeader>Capacity</ProductInfoHeader>
-                               <label>{specs.capacity}</label>
-                           </ProductInfo>
-                       )}
+                    {specs.capacity && (
+                        <ProductInfo>
+                            <ProductInfoHeader>Capacity</ProductInfoHeader>
+                            <label>{specs.capacity}</label>
+                        </ProductInfo>
+                    )}
        
-                       <ProductInfo>
-                           <ProductInfoHeader>Features</ProductInfoHeader>
-                           <ul>
-                               {features?.map((data, i) => {
-                                   return <ProductInfoListItem key={`feature${i}`}>{data}</ProductInfoListItem>;
-                               })}
-                           </ul>
-                       </ProductInfo>
-                   </aside>
+                <ProductInfo>
+                    <ProductInfoHeader>Features</ProductInfoHeader>
+                    <ul>
+                        {features?.map((data, i) => {
+                            return <ProductInfoListItem key={`feature${i}`}>{data}</ProductInfoListItem>;
+                        })}
+                    </ul>
+                </ProductInfo>
+            </aside>
        
-                   <aside>
-                       <ProductInfoFinancePrice>
-                           ${price}
-                       </ProductInfoFinancePrice>
+            <aside>
+                <ProductInfoFinancePrice>
+                    ${price}
+                </ProductInfoFinancePrice>
        
-                       <ProductInfoStock>
-                           <ProductInfoStockLabel>Stock Level: {stock}</ProductInfoStockLabel>
-                           <ProductInfoStockLabel>FREE Delivery</ProductInfoStockLabel>
-                       </ProductInfoStock>
+                <ProductInfoStock>                           
+                    <ProductInfoStockLabel>Stock Level: 
+                        <StockLevelUpdateComponent id={id} stock={stock} sUpdate={stockUpdate} setSUpdate={setStockUpdate} />
+                    </ProductInfoStockLabel>
+                    <ProductInfoStockLabel>FREE Delivery</ProductInfoStockLabel>
+                </ProductInfoStock>
        
-                       <ProductInfoAction>
-                           <ProductInfoActionButton className= "bcolor" onClick={() => navigate(`/products/${id}`)}>
-                               View Product
-                           </ProductInfoActionButton>
-                           <ProductInfoActionButton className= "bcolor" onClick={() => addProduct({id, title, price})}>Add to Basket</ProductInfoActionButton>
-                       </ProductInfoAction>
-                   </aside>
+                <ProductInfoAction>
+                    <ProductInfoActionButton className= "bcolor" onClick={() => navigate(`/products/${id}`)}>
+                        View Product
+                    </ProductInfoActionButton>
+                    <ProductInfoActionButton disabled={isOutOfStock} className= "bcolor" onClick={() => 
+                        addProduct({id, title, price, stock})}>{isOutOfStock ? "Out of Stock" : "Add to Basket"}
+                    </ProductInfoActionButton>
+                </ProductInfoAction>
+            </aside>
         </ProductInfoArticle> 
     );
 };
@@ -139,6 +148,14 @@ const ProductInfoActionButton = styled.button`
     background-color: lightgray;
     border: solid 1px slategrey;
     font-weight: bold;
+    
+    &:hover {
+        background-color: blue;
+    }
+
+    &:focus {
+        outline:2px solid white;
+    }
 `;
 
 const ProductInfoFinancePrice = styled.div`

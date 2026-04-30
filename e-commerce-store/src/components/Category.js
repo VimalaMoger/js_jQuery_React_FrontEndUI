@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProducts } from "../fetcher";
 import CategoryProduct from "./categoryProduct";
 
+
 const Category = () => {
     const [product,  setProduct] = React.useState({errMessage: "", data: [] });
     const params = useParams();
@@ -21,12 +22,12 @@ const Category = () => {
         ));
     };      
 
-    return(     
+    return (     
         <div>
             { product.errMessage && <div> Error: {product.errMessage}</div> }
             {
-             product.data && renderProducts()          
-             }
+              product.data && renderProducts()          
+            }
         </div>
     );
 };

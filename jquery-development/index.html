@@ -25,7 +25,6 @@
       <a class="skip-link" href="#main-content">Skip to main content</a>
       <header role="banner">
           <h1 id="heading1">My First jQuery Web Page</h1>
-          <!-- <h2 id="heading2" style="color: rgba(19, 124, 150, 0.733);">This text moves with mouse movement</h2> -->
           <h2 id="heading2"><i>This text moves with mouse movement</i></h2>
       </header>
 
@@ -98,18 +97,29 @@
         <br>
        
         <!-- Drop down list (ARIA tabs) -->
-        <div class="tab-interface">
-          <!-- Tablist should contain only the tabs -->
-          <div id="accordion" class="tips" role="tablist" aria-label="Pizza Baking Tips">
-            <span role="tab" aria-controls="panel-1" id="tab-1" tabindex="0">Pizza Main Ingredient</span>
-            <span role="tab" aria-controls="panel-2" id="tab-2" tabindex="-1">Temperature for baking</span>
-            <span role="tab" aria-controls="panel-3" id="tab-3" tabindex="-1">Time to cook</span>
+<!--         <div class="tab-interface">
+            Tablist should contain only the tabs -->
+     <!--     <div id="accordion" class="tips" role="tablist" aria-label="Sample Tabs">
+            <span role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" tabindex="0">Pizza Main Ingredient</span>
+            <span role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">Temperature for baking</span>
+            <span role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">Time to cook</span>
           </div>
-          <!-- Panels must be siblings of the tablist, not children -->
-          <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">Flour</div>
+        Panels must be siblings of the tablist, not children -->
+        <!--  <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">Flour</div>
           <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="display-none">475&deg;F</div>
           <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" class="display-none">15Min</div>
-        </div>
+        </div> -->
+
+        <div id="accordion" class="tips" role="tablist">
+          <span role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" tabindex="0">Pizza Main Ingredient</span>
+          <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">Flour</div>
+          <span role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">Temperature for baking</span>
+          <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="display-none">475&deg;F</div>
+          <span role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">Time to cook</span>
+          <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" class="display-none">15Min</div>
+        </div> 
+        <br>       
+
         <br>
         <!-- page links -->
         <nav aria-label="nav-label-2" class="table-of-contents">
@@ -198,6 +208,10 @@
                 }
           });
         });
+        // Accordion menu (guarded)
+        if (typeof $ !== 'undefined' && $("#accordion").length && $.fn.accordion) {
+          $("#accordion").accordion();
+        } 
       
       </script>
     </body>

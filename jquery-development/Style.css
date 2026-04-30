@@ -1,5 +1,5 @@
   
-.line2{
+.line2 {
   display: inline-block;
 }
 
@@ -61,7 +61,7 @@ tfoot td {
   text-align: center;
 }
 
-#panel{     
+#panel {     
   width: 150px;
   height: 150px;
   background-color: #3498db;
@@ -99,7 +99,7 @@ tfoot td {
   border-top-right-radius: var(--r);
 }
 
-#square1, #square2, #square3, #square4{
+#square1, #square2, #square3, #square4 {
   width:60px;
   margin-top: 5px;
   height:60px;
@@ -113,19 +113,19 @@ tfoot td {
   padding: 0;
 }
 
-#hidden,#visible, #btn{
+#hidden, #visible, #btn {
   border-color: blue;
   border-radius: 30%;
 }
 
-#clk1, #clk2, #clk3, #clk4{
+#clk1, #clk2, #clk3, #clk4 {
   margin: 0;
   padding: 0;
   display: inline-block;
   text-align: center;
 }
 
-#drag{ 
+#drag { 
   width: 150px;
   height: 150px;
   background-color: rgb(209, 180, 15);
@@ -143,17 +143,17 @@ tfoot td {
   outline-offset: 3px;
 }
 
-#accordion{
+#accordion {
   margin-bottom: 15px;
 }
 
-#button1,#button2,#addItem1, #addItem2{
+#button1, #button2, #addItem1, #addItem2{
   border-color: red;
   margin-bottom : 15px;
   margin-top : 15px;
 }
  
-.useCSSStyle{
+.useCSSStyle {
   font-size: x-large;
   font-weight: bold;
 }

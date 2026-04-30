@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.subtotal {
+  margin: 33px 0 0;
+  float: none;
+  width: 100%;
+  font-size: 12px;
+  font-family: "Gotham 5r", Helvetica, Arial, sans-serif;
+  color: #cf7e21;
+  text-align: center;
+}
+
+.sub-total {
+  font-size: 12px;
+  float: right;
+}
