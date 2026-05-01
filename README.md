@@ -161,7 +161,7 @@
 ### E-Commerce-Store
 ![E-Store](./images/e-store.png)
 
-[View](https://melodious-licorice-4ac6e1.netlify.app)
+[View](https://thunderous-sunshine-2e7f59.netlify.app/)
 
 
 
