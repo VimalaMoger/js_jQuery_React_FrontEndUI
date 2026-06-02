@@ -31,18 +31,17 @@
 
 ####  ***_React_ - Connect-4 Clone Board Game:***
 
-  * Developed a functional and playable Small GameBoard with 16 Circles.
+  * Developed a functional and playable GameBoard with 16 Circles.
   
-      * Used useEffect and useState Hooks while developing React app.
+      * Used useEffect and useState Hooks when developing React app.
     
-      * Implemented Callbacks in response to Click Events. 
+      * Added click event callbacks.      
+          * Pass and destructure properties between components
       
-          * Pass properties to Components and Deconstruct these properties in child Components.
-      
-          * Style the React UI Components with Different Styles including:
+          * Applied multiple styling approaches:
               -  Dynamic, Inline and Dynamic classes.
       
-          * Determine Winner and Draw condition. Update the Board Header with game State.
+          * Updated the game state header to show win/draw condition.
     
       * Footer in initializing the board. Implemented Computer player(Basic AI).
     
